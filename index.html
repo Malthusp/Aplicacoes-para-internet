@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio — Malthus Albuquerque Pereira da Costa</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <span class="logo-initials">M.A</span>
+      <span class="logo-name">Malthus Costa</span>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Desenvolvedor Web · João Pessoa, PB</p>
+      <h1>Malthus<br /><em>Albuquerque</em><br />Pereira da Costa</h1>
+      <p class="hero-desc">Criando experiências digitais com HTML5, CSS3 e JavaScript moderno. Apaixonado por interfaces responsivas e acessíveis.</p>
+      <a href="#projetos" class="btn-hero">Ver Projetos</a>
+    </div>
+    <div class="hero-deco" aria-hidden="true">
+      <div class="deco-ring ring-1"></div>
+      <div class="deco-ring ring-2"></div>
+      <div class="deco-ring ring-3"></div>
+      <span class="deco-code">&lt;/&gt;</span>
+    </div>
+  </section>
+
+  <!-- MAIN GRID -->
+  <main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sobre">
+      <div class="sidebar-card">
+        <div class="avatar">MAC</div>
+        <h2 class="sidebar-name">Malthus A. P. da Costa</h2>
+        <p class="sidebar-role">Estudante de Aplicações para Internet</p>
+        <hr class="divider" />
+        <ul class="info-list">
+          <li>
+            <span class="info-icon">📍</span>
+            <span>João Pessoa, PB</span>
+          </li>
+          <li>
+            <span class="info-icon">🎓</span>
+            <span>Aula 7 — Layout Responsivo</span>
+          </li>
+          <li>
+            <span class="info-icon">👨‍💻</span>
+            <span>Prof. Jeofton Costa</span>
+          </li>
+          <li>
+            <span class="info-icon">📅</span>
+            <span>2025</span>
+          </li>
+        </ul>
+        <hr class="divider" />
+        <h3 class="sidebar-section-title">Tecnologias</h3>
+        <div class="tech-tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">Flexbox</span>
+          <span class="tag">CSS Grid</span>
+          <span class="tag">Media Queries</span>
+          <span class="tag">Responsividade</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <section class="content">
+
+      <!-- SOBRE -->
+      <div class="content-block" id="sobre-text">
+        <h2 class="section-title"><span class="title-num">01</span> Sobre Mim</h2>
+        <p>
+          Olá! Sou <strong>Malthus Albuquerque Pereira da Costa</strong>, estudante do curso de Aplicações para Internet.
+          Estou aprimorando minhas habilidades em desenvolvimento frontend, com foco em criar layouts modernos,
+          acessíveis e responsivos que funcionem perfeitamente em qualquer dispositivo.
+        </p>
+        <p>
+          Neste projeto prático (Aula 7), implementei técnicas de <strong>Flexbox</strong>, <strong>CSS Grid</strong>,
+          <strong>Media Queries</strong> e <strong>unidades relativas</strong> para criar uma interface
+          que se adapta fluidamente entre mobile, tablet e desktop.
+        </p>
+      </div>
+
+      <!-- PROJETOS -->
+      <div class="content-block" id="projetos">
+        <h2 class="section-title"><span class="title-num">02</span> Projetos</h2>
+        <div class="cards-grid">
+
+          <article class="card">
+            <div class="card-header card-header--blue">
+              <span class="card-icon">🌐</span>
+            </div>
+            <div class="card-body">
+              <h3>Site Pessoal</h3>
+              <p>Layout responsivo com Flexbox e Grid. Breakpoints mobile, tablet e desktop.</p>
+              <div class="card-tags">
+                <span class="tag tag--sm">HTML</span>
+                <span class="tag tag--sm">CSS</span>
+                <span class="tag tag--sm">Flexbox</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header card-header--green">
+              <span class="card-icon">🛒</span>
+            </div>
+            <div class="card-body">
+              <h3>Loja Virtual</h3>
+              <p>Grid de produtos com auto-fit e minmax. Cards responsivos sem breakpoints fixos.</p>
+              <div class="card-tags">
+                <span class="tag tag--sm">CSS Grid</span>
+                <span class="tag tag--sm">auto-fit</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header card-header--amber">
+              <span class="card-icon">📰</span>
+            </div>
+            <div class="card-body">
+              <h3>Blog</h3>
+              <p>Layout editorial com sidebar que colapsa em mobile. Tipografia fluida com clamp().</p>
+              <div class="card-tags">
+                <span class="tag tag--sm">Grid Areas</span>
+                <span class="tag tag--sm">clamp()</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header card-header--purple">
+              <span class="card-icon">📱</span>
+            </div>
+            <div class="card-body">
+              <h3>App Mobile-First</h3>
+              <p>Estratégia mobile-first com media queries progressivas e hamburguer menu CSS.</p>
+              <div class="card-tags">
+                <span class="tag tag--sm">Mobile-First</span>
+                <span class="tag tag--sm">@media</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header card-header--rose">
+              <span class="card-icon">🎨</span>
+            </div>
+            <div class="card-body">
+              <h3>Dashboard</h3>
+              <p>Painel administrativo com CSS Grid template areas e layout de 3 colunas.</p>
+              <div class="card-tags">
+                <span class="tag tag--sm">Dashboard</span>
+                <span class="tag tag--sm">CSS Vars</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header card-header--teal">
+              <span class="card-icon">♿</span>
+            </div>
+            <div class="card-body">
+              <h3>Acessibilidade</h3>
+              <p>Interfaces com prefers-reduced-motion, prefers-color-scheme e semântica HTML5.</p>
+              <div class="card-tags">
+                <span class="tag tag--sm">a11y</span>
+                <span class="tag tag--sm">Semântica</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- HABILIDADES -->
+      <div class="content-block" id="habilidades">
+        <h2 class="section-title"><span class="title-num">03</span> Habilidades Desenvolvidas</h2>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Flexbox</span>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="--w: 90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">CSS Grid</span>
+              <span class="skill-pct">85%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="--w: 85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Media Queries</span>
+              <span class="skill-pct">88%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="--w: 88%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">HTML5 Semântico</span>
+              <span class="skill-pct">92%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="--w: 92%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">CSS Variables</span>
+              <span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" style="--w: 80%"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ASIDE -->
+    <aside class="aside">
+      <div class="aside-card">
+        <h3 class="aside-title">Roteiro da Aula 7</h3>
+        <ul class="checklist">
+          <li class="check-done">✅ Audit do layout atual</li>
+          <li class="check-done">✅ Variáveis CSS e breakpoints</li>
+          <li class="check-done">✅ Layout Mobile-First</li>
+          <li class="check-done">✅ Breakpoints tablet e desktop</li>
+          <li class="check-done">✅ Imagens e inputs responsivos</li>
+          <li class="check-extra">⭐ Hamburguer menu CSS</li>
+          <li class="check-extra">⭐ prefers-color-scheme</li>
+          <li class="check-extra">⭐ clamp() fluido</li>
+          <li class="check-extra">⭐ prefers-reduced-motion</li>
+        </ul>
+      </div>
+
+      <div class="aside-card aside-card--dark">
+        <h3 class="aside-title aside-title--light">Breakpoints</h3>
+        <ul class="bp-list">
+          <li><span class="bp-label">Mobile</span><code>&lt; 480px</code></li>
+          <li><span class="bp-label">Tablet</span><code>≥ 768px</code></li>
+          <li><span class="bp-label">Desktop</span><code>≥ 1024px</code></li>
+        </ul>
+      </div>
+
+      <div class="aside-card" id="contato">
+        <h3 class="aside-title">Contato</h3>
+        <form class="contact-form">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="Seu nome" />
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="seu@email.com" />
+          <label for="msg">Mensagem</label>
+          <textarea id="msg" rows="3" placeholder="Olá, Malthus!"></textarea>
+          <button type="button" class="btn-submit">Enviar</button>
+        </form>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">Malthus Albuquerque Pereira da Costa</p>
+      <p class="footer-sub">Aplicações para Internet · Aula 7 — Layout Moderno e Responsividade · Prof. Jeofton Costa</p>
+      <p class="footer-copy">Entregável: repositório GitHub + screenshots nos 3 breakpoints</p>
+    </div>
+  </footer>
+
+</body>
+</html>
