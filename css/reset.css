@@ -1,0 +1,95 @@
+/* ============================================================
+   reset.css — Modern CSS Reset (ITCSS Base Layer)
+   Fonte: Andy Bell + customizacoes do projeto
+   Aula 8 — Prof. Jeofton Costa
+   ============================================================ */
+
+/* 1. Box-sizing universal */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove margens e paddings padrao */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Definicoes no html para heranca de font-size */
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+/* 4. Body: altura minima, antialiasing, tipografia base */
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+}
+
+/* 5. Midia responsiva por padrao */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inputs herdam tipografia do body */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflow em elementos de bloco */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Listas sem estilo quando dentro de nav */
+nav ul, nav ol {
+  list-style: none;
+}
+
+/* 9. Remover estilo de lista quando tem role=list */
+ul[role='list'], ol[role='list'] {
+  list-style: none;
+}
+
+/* 10. Inputs e textareas — reset de borda nativa */
+input, textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+/* 11. Botoes — reset do estilo nativo */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* 12. Tabelas — colapsar bordas */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 13. Texto de blockquotes sem estilo */
+blockquote, q {
+  quotes: none;
+}
+
+/* 14. Reduced motion — respeitar preferencias do usuario */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
