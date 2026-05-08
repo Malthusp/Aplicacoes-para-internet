@@ -1,102 +1,155 @@
 /* ============================================================
    layout.css — Layout Layer (ITCSS)
-   Estrutura: header, main grid, sidebar, footer
-   Mobile-First com breakpoints progressivos
+   Grid do projeto: cards-grid + layout geral de página
+   Aula 09 — Prof. Jeofton Costa
    ============================================================ */
 
-/* ── HEADER ───────────────────────────────────────────────── */
-header {
+/* ── RESET DE FLUXO ───────────────────────────────────────── */
+body {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-md);
-  background: var(--color-bg-dark);
-  position: sticky;
-  top: 0;
-  z-index: var(--z-header);
-  box-shadow: var(--shadow-md);
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+}
+
+/* ── CONTAINER ────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: var(--space-6);
+}
+
+/* ── SECTION ──────────────────────────────────────────────── */
+.section {
+  padding-block: var(--space-16);
+}
+
+.section__header {
+  margin-bottom: var(--space-8);
+}
+
+.section__eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+}
+
+.section__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+}
+
+.section__subtitle {
+  font-size: var(--font-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+  max-width: 60ch;
+  margin-top: var(--space-2);
 }
 
 /* ── HERO ─────────────────────────────────────────────────── */
 .hero {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
-  padding: var(--space-2xl) var(--space-lg);
-  background: var(--color-bg-dark);
+  background: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-500) 100%);
+  color: #fff;
+  padding-block: var(--space-16);
   position: relative;
   overflow: hidden;
 }
 
-/* ── MAIN GRID — Mobile: 1 coluna ────────────────────────── */
-main {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-lg);
-  padding: var(--space-lg);
-  max-width: 1400px;
-  margin: 0 auto;
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1' fill='white' fill-opacity='.08'/%3E%3C/svg%3E");
 }
 
-/* ── TABLET: 768px — sidebar + conteudo ──────────────────── */
-@media (min-width: 768px) {
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: var(--space-md) var(--space-xl);
-  }
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
 
-  .hero {
+@media (min-width: 768px) {
+  .hero__inner {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: var(--space-3xl) var(--space-2xl);
-  }
-
-  main {
-    grid-template-columns: 280px 1fr;
-    grid-template-areas:
-      "sidebar content"
-      "sidebar aside";
-    padding: var(--space-xl);
-  }
-
-  .sidebar {
-    grid-area: sidebar;
-    position: sticky;
-    top: 80px;
-    align-self: start;
-  }
-
-  .content {
-    grid-area: content;
-  }
-
-  .aside {
-    grid-area: aside;
   }
 }
 
-/* ── DESKTOP: 1024px — 3 colunas ─────────────────────────── */
-@media (min-width: 1024px) {
-  main {
-    grid-template-columns: 280px 1fr 280px;
-    grid-template-areas: "sidebar content aside";
-    gap: var(--space-xl);
-    padding: var(--space-2xl);
-  }
+.hero__content { max-width: 600px; }
 
-  .aside {
-    position: sticky;
-    top: 80px;
-    align-self: start;
+.hero__eyebrow {
+  font-size: var(--font-xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,.7);
+  margin-bottom: var(--space-4);
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: #fff;
+  margin-bottom: var(--space-4);
+}
+
+.hero__desc {
+  font-size: var(--font-md);
+  color: rgba(255,255,255,.8);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-8);
+  max-width: 50ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* ── CARDS GRID ───────────────────────────────────────────── */
+/* Mobile: 1 coluna */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+/* Tablet ≥ 768px: 2 colunas */
+@media (min-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* ── DESKTOP LARGO: 1280px ────────────────────────────────── */
-@media (min-width: 1280px) {
-  main {
-    grid-template-columns: 300px 1fr 300px;
+/* Desktop ≥ 1200px: 3 colunas + featured ocupa 2 */
+@media (min-width: 1200px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cards-grid .card--featured {
+    grid-column: span 2;
   }
 }

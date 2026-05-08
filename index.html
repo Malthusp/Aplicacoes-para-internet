@@ -4,330 +4,455 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfólio — Malthus Albuquerque Pereira da Costa</title>
+  <meta name="description" content="Portfólio de Malthus A. P. da Costa — Estudante de Aplicações para Internet." />
 
-  <!-- Google Fonts — DM Serif Display + DM Sans -->
+  <!-- Google Fonts — Inter + Poppins (Aula 09) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@700&display=swap" rel="stylesheet" />
 
   <!--
-    Importações CSS na ordem ITCSS:
+    CSS na ordem ITCSS:
     1. Settings  → variables.css
-    2. Base      → reset.css → base.css
+    2. Base      → reset.css  → base.css
     3. Layout    → layout.css
-    4. Components → nav, hero, card, footer
+    4. Components → navbar, hero*, card, footer, btn
     5. Utilities → utilities.css
   -->
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/components/nav.css" />
-  <link rel="stylesheet" href="css/components/hero.css" />
+  <link rel="stylesheet" href="css/components/navbar.css" />
   <link rel="stylesheet" href="css/components/card.css" />
   <link rel="stylesheet" href="css/components/footer.css" />
+  <link rel="stylesheet" href="css/components/btn.css" />
   <link rel="stylesheet" href="css/utilities.css" />
 </head>
 <body>
 
-  <!-- ═══════════════════ HEADER ════════════════════════════ -->
-  <header>
-    <div class="logo">
-      <span class="logo-initials" aria-hidden="true">M.A</span>
-      <span class="logo-name">Malthus Costa</span>
+  <!-- ══════════════════════ HEADER / NAVBAR ═══════════════════ -->
+  <header class="header">
+    <div class="header__inner">
+
+      <!-- Logo -->
+      <a href="/" class="header__logo" aria-label="Malthus Costa — Página inicial">
+        <span class="header__logo-mark" aria-hidden="true">M.A</span>
+        <span class="header__logo-text">
+          Malthus Costa
+          <span>Aplicações para Internet</span>
+        </span>
+      </a>
+
+      <!-- Nav Desktop -->
+      <nav class="header__nav" id="main-nav" aria-label="Navegação principal">
+        <ul class="header__nav-list" role="list">
+          <li><a href="#sobre"       class="header__nav-link">Sobre</a></li>
+          <li><a href="#disciplinas" class="header__nav-link">Disciplinas</a></li>
+          <li><a href="#projetos"    class="header__nav-link">Projetos</a></li>
+          <li><a href="#habilidades" class="header__nav-link">Habilidades</a></li>
+          <li><a href="#contato"     class="header__nav-link btn btn--primary btn--sm">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Hamburger Mobile -->
+      <button
+        class="header__toggle hide-desktop"
+        aria-controls="main-nav"
+        aria-expanded="false"
+        aria-label="Abrir menu"
+        type="button"
+      >
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+
     </div>
-    <nav aria-label="Navegação principal">
-      <ul class="nav-links">
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <!-- ═══════════════════ HERO ══════════════════════════════ -->
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-content">
-      <p class="hero-eyebrow">Desenvolvedor Web · João Pessoa, PB</p>
-      <h1 id="hero-title">Malthus<br /><em>Albuquerque</em><br />Pereira da Costa</h1>
-      <p class="hero-desc">
-        Criando experiências digitais com HTML5, CSS3 e JavaScript moderno.
-        Apaixonado por interfaces responsivas e acessíveis.
-      </p>
-      <a href="#projetos" class="btn-hero">Ver Projetos</a>
-    </div>
-    <div class="hero-deco" aria-hidden="true">
-      <div class="deco-ring ring-1"></div>
-      <div class="deco-ring ring-2"></div>
-      <div class="deco-ring ring-3"></div>
-      <span class="deco-code">&lt;/&gt;</span>
-    </div>
-  </section>
+  <!-- ══════════════════════ MAIN ══════════════════════════════ -->
+  <main class="main">
 
-  <!-- ═══════════════════ MAIN GRID ═════════════════════════ -->
-  <main>
-
-    <!-- ── SIDEBAR ──────────────────────────────────────────── -->
-    <aside class="sidebar" aria-label="Perfil">
-      <div class="sidebar-card">
-        <div class="avatar" aria-hidden="true">MAC</div>
-        <h2 class="sidebar-name">Malthus A. P. da Costa</h2>
-        <p class="sidebar-role">Estudante de Aplicações para Internet</p>
-        <hr class="divider" />
-        <ul class="info-list">
-          <li>
-            <span class="info-icon" aria-hidden="true">📍</span>
-            <span>João Pessoa, PB</span>
-          </li>
-          <li>
-            <span class="info-icon" aria-hidden="true">🎓</span>
-            <span>Aula 8 — Planejamento do Projeto</span>
-          </li>
-          <li>
-            <span class="info-icon" aria-hidden="true">👨‍💻</span>
-            <span>Prof. Jeofton Costa</span>
-          </li>
-          <li>
-            <span class="info-icon" aria-hidden="true">📅</span>
-            <span>2026</span>
-          </li>
-        </ul>
-        <hr class="divider" />
-        <h3 class="sidebar-section-title">Tecnologias</h3>
-        <div class="tech-tags">
-          <span class="tag">HTML5</span>
-          <span class="tag">CSS3</span>
-          <span class="tag">Flexbox</span>
-          <span class="tag">CSS Grid</span>
-          <span class="tag">Media Queries</span>
-          <span class="tag">Responsividade</span>
-        </div>
-      </div>
-    </aside>
-
-    <!-- ── CONTEÚDO PRINCIPAL ───────────────────────────────── -->
-    <section class="content" aria-label="Conteúdo principal">
-
-      <!-- Sobre -->
-      <div class="content-block" id="sobre">
-        <h2 class="section-title">
-          <span class="title-num">01</span> Sobre Mim
-        </h2>
-        <p>
-          Olá! Sou <strong>Malthus Albuquerque Pereira da Costa</strong>, estudante do curso
-          de Aplicações para Internet. Estou aprimorando minhas habilidades em desenvolvimento
-          frontend, com foco em criar layouts modernos, acessíveis e responsivos que funcionem
-          perfeitamente em qualquer dispositivo.
-        </p>
-        <p class="mt-md">
-          Neste projeto (Aula 8), estruturei a fundação do projeto final com definição de problema,
-          wireframe documentado, arquitetura ITCSS e variáveis CSS para cores e tipografia.
-        </p>
-      </div>
-
-      <!-- Projetos -->
-      <div class="content-block" id="projetos">
-        <h2 class="section-title">
-          <span class="title-num">02</span> Projetos
-        </h2>
-        <div class="cards-grid">
-
-          <article class="card">
-            <div class="card-header card-header--blue">
-              <span class="card-icon" aria-hidden="true">🌐</span>
-            </div>
-            <div class="card-body">
-              <h3>Site Pessoal</h3>
-              <p>Layout responsivo com Flexbox e Grid. Breakpoints mobile, tablet e desktop.</p>
-              <div class="card-tags">
-                <span class="tag tag--sm">HTML</span>
-                <span class="tag tag--sm">CSS</span>
-                <span class="tag tag--sm">Flexbox</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-header card-header--green">
-              <span class="card-icon" aria-hidden="true">🛒</span>
-            </div>
-            <div class="card-body">
-              <h3>Loja Virtual</h3>
-              <p>Grid de produtos com auto-fit e minmax. Cards responsivos sem breakpoints fixos.</p>
-              <div class="card-tags">
-                <span class="tag tag--sm">CSS Grid</span>
-                <span class="tag tag--sm">auto-fit</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-header card-header--amber">
-              <span class="card-icon" aria-hidden="true">📰</span>
-            </div>
-            <div class="card-body">
-              <h3>Blog</h3>
-              <p>Layout editorial com sidebar que colapsa em mobile. Tipografia fluida com clamp().</p>
-              <div class="card-tags">
-                <span class="tag tag--sm">Grid Areas</span>
-                <span class="tag tag--sm">clamp()</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-header card-header--purple">
-              <span class="card-icon" aria-hidden="true">📱</span>
-            </div>
-            <div class="card-body">
-              <h3>App Mobile-First</h3>
-              <p>Estratégia mobile-first com media queries progressivas e hamburguer menu CSS.</p>
-              <div class="card-tags">
-                <span class="tag tag--sm">Mobile-First</span>
-                <span class="tag tag--sm">@media</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-header card-header--rose">
-              <span class="card-icon" aria-hidden="true">🎨</span>
-            </div>
-            <div class="card-body">
-              <h3>Dashboard</h3>
-              <p>Painel administrativo com CSS Grid template areas e layout de 3 colunas.</p>
-              <div class="card-tags">
-                <span class="tag tag--sm">Dashboard</span>
-                <span class="tag tag--sm">CSS Vars</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-header card-header--teal">
-              <span class="card-icon" aria-hidden="true">♿</span>
-            </div>
-            <div class="card-body">
-              <h3>Acessibilidade</h3>
-              <p>Interfaces com prefers-reduced-motion, prefers-color-scheme e semântica HTML5.</p>
-              <div class="card-tags">
-                <span class="tag tag--sm">a11y</span>
-                <span class="tag tag--sm">Semântica</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-
-      <!-- Habilidades -->
-      <div class="content-block" id="habilidades">
-        <h2 class="section-title">
-          <span class="title-num">03</span> Habilidades Desenvolvidas
-        </h2>
-        <div class="skills-list">
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">Flexbox</span>
-              <span class="skill-pct">90%</span>
-            </div>
-            <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-              <div class="skill-fill" style="--w: 90%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">CSS Grid</span>
-              <span class="skill-pct">85%</span>
-            </div>
-            <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-              <div class="skill-fill" style="--w: 85%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">Media Queries</span>
-              <span class="skill-pct">88%</span>
-            </div>
-            <div class="skill-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
-              <div class="skill-fill" style="--w: 88%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">HTML5 Semântico</span>
-              <span class="skill-pct">92%</span>
-            </div>
-            <div class="skill-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
-              <div class="skill-fill" style="--w: 92%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">CSS Variables</span>
-              <span class="skill-pct">80%</span>
-            </div>
-            <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-              <div class="skill-fill" style="--w: 80%"></div>
-            </div>
+    <!-- ── HERO ───────────────────────────────────────────────── -->
+    <section class="hero" id="sobre" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Desenvolvedor Web · João Pessoa, PB</p>
+          <h1 class="hero__title" id="hero-title">
+            Malthus Albuquerque<br />Pereira da Costa
+          </h1>
+          <p class="hero__desc">
+            Criando experiências digitais modernas com HTML5, CSS3 e JavaScript.
+            Focado em interfaces responsivas, acessíveis e bem estruturadas.
+          </p>
+          <div class="hero__actions">
+            <a href="#projetos"  class="btn btn--primary">Ver Projetos</a>
+            <a href="#contato"   class="btn btn--ghost" style="color:#fff; --btn-bg-hover: rgba(255,255,255,.1); --btn-color-hover:#fff;">Entrar em Contato</a>
           </div>
         </div>
       </div>
-
     </section>
 
-    <!-- ── ASIDE DIREITO ─────────────────────────────────────── -->
-    <aside class="aside" aria-label="Checklist e contato">
+    <!-- ── DISCIPLINAS — seção de cards ─────────────────────── -->
+    <section class="section" id="disciplinas" aria-labelledby="disc-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Semestre 2026.1</span>
+          <h2 class="section__title" id="disc-title">Disciplinas do Semestre</h2>
+          <p class="section__subtitle">
+            Conteúdos estudados e habilidades desenvolvidas ao longo do curso
+            de Aplicações para Internet.
+          </p>
+        </header>
 
-      <div class="aside-card">
-        <h3 class="aside-title">Checklist Aula 8</h3>
-        <ul class="checklist">
-          <li class="check-done">✅ Definição de problema</li>
-          <li class="check-done">✅ Wireframe documentado</li>
-          <li class="check-done">✅ Estrutura ITCSS</li>
-          <li class="check-done">✅ variables.css (cores + tipografia)</li>
-          <li class="check-done">✅ reset.css aplicado</li>
-          <li class="check-done">✅ HTML semântico</li>
-          <li class="check-done">✅ Contraste WCAG AA</li>
-          <li class="check-extra">⭐ Dark mode automático</li>
-          <li class="check-extra">⭐ prefers-reduced-motion</li>
-        </ul>
+        <!-- CARDS GRID — mínimo 4 cards; primeiro com card--featured -->
+        <div class="cards-grid">
+
+          <!-- Card 1 — featured -->
+          <article class="card card--featured" aria-label="Disciplina em destaque">
+            <div class="card__header card__header--blue">🖥️</div>
+            <div class="card__body">
+              <h3 class="card__title">Engenharia de Interface</h3>
+              <p class="card__desc">
+                HTML5 semântico, CSS3 moderno, arquitetura ITCSS + BEM,
+                componentização, tipografia fluida, acessibilidade WCAG e
+                design responsivo mobile-first.
+              </p>
+              <div class="card__meta">
+                <span class="card__badge">Em andamento</span>
+                <span class="card__badge">Aula 09</span>
+              </div>
+            </div>
+            <div class="card__footer">
+              <span style="font-size: var(--font-xs); color: var(--color-text-secondary);">Prof. Jeofton Costa</span>
+              <a href="#projetos" class="card__link">Ver projeto →</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card">
+            <div class="card__header card__header--green">🗃️</div>
+            <div class="card__body">
+              <h3 class="card__title">Banco de Dados</h3>
+              <p class="card__desc">
+                Modelagem relacional, SQL, normalização de tabelas,
+                consultas com JOINs e otimização de queries.
+              </p>
+              <div class="card__meta">
+                <span class="card__badge">Cursando</span>
+              </div>
+            </div>
+            <div class="card__footer">
+              <span style="font-size: var(--font-xs); color: var(--color-text-secondary);">Semestre atual</span>
+              <a href="#" class="card__link">Saiba mais →</a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card">
+            <div class="card__header card__header--amber">⚙️</div>
+            <div class="card__body">
+              <h3 class="card__title">Programação Web</h3>
+              <p class="card__desc">
+                Desenvolvimento com JavaScript moderno, DOM, eventos,
+                fetch API e manipulação assíncrona de dados.
+              </p>
+              <div class="card__meta">
+                <span class="card__badge">Cursando</span>
+              </div>
+            </div>
+            <div class="card__footer">
+              <span style="font-size: var(--font-xs); color: var(--color-text-secondary);">Semestre atual</span>
+              <a href="#" class="card__link">Saiba mais →</a>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="card">
+            <div class="card__header card__header--purple">📐</div>
+            <div class="card__body">
+              <h3 class="card__title">UX / Design de Produto</h3>
+              <p class="card__desc">
+                Pesquisa com usuários, wireframing, prototipagem no Figma,
+                testes de usabilidade e Design System.
+              </p>
+              <div class="card__meta">
+                <span class="card__badge">Cursando</span>
+              </div>
+            </div>
+            <div class="card__footer">
+              <span style="font-size: var(--font-xs); color: var(--color-text-secondary);">Semestre atual</span>
+              <a href="#" class="card__link">Saiba mais →</a>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="card">
+            <div class="card__header card__header--rose">🔒</div>
+            <div class="card__body">
+              <h3 class="card__title">Segurança da Informação</h3>
+              <p class="card__desc">
+                Fundamentos de criptografia, autenticação, OWASP Top 10
+                e boas práticas de segurança em aplicações web.
+              </p>
+              <div class="card__meta">
+                <span class="card__badge">Cursando</span>
+              </div>
+            </div>
+            <div class="card__footer">
+              <span style="font-size: var(--font-xs); color: var(--color-text-secondary);">Semestre atual</span>
+              <a href="#" class="card__link">Saiba mais →</a>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="card">
+            <div class="card__header card__header--teal">📡</div>
+            <div class="card__body">
+              <h3 class="card__title">Redes de Computadores</h3>
+              <p class="card__desc">
+                Modelo OSI/TCP-IP, protocolos HTTP/HTTPS, DNS, configuração
+                de redes e noções de infraestrutura em nuvem.
+              </p>
+              <div class="card__meta">
+                <span class="card__badge">Cursando</span>
+              </div>
+            </div>
+            <div class="card__footer">
+              <span style="font-size: var(--font-xs); color: var(--color-text-secondary);">Semestre atual</span>
+              <a href="#" class="card__link">Saiba mais →</a>
+            </div>
+          </article>
+
+        </div><!-- /cards-grid -->
       </div>
+    </section>
 
-      <div class="aside-card aside-card--dark">
-        <h3 class="aside-title aside-title--light">Breakpoints</h3>
-        <ul class="bp-list">
-          <li><span class="bp-label">Mobile</span><code>&lt; 480px</code></li>
-          <li><span class="bp-label">Tablet</span><code>≥ 768px</code></li>
-          <li><span class="bp-label">Desktop</span><code>≥ 1024px</code></li>
-          <li><span class="bp-label">Wide</span><code>≥ 1280px</code></li>
-        </ul>
-      </div>
+    <!-- ── PROJETOS ─────────────────────────────────────────── -->
+    <section class="section" id="projetos" style="background: var(--color-bg-primary);" aria-labelledby="proj-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Prática</span>
+          <h2 class="section__title" id="proj-title">Projetos Desenvolvidos</h2>
+          <p class="section__subtitle">Trabalhos práticos das aulas e exercícios de fixação.</p>
+        </header>
+        <div class="cards-grid">
 
-      <div class="aside-card" id="contato">
-        <h3 class="aside-title">Contato</h3>
-        <div class="contact-form">
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name" />
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" />
-          <label for="msg">Mensagem</label>
-          <textarea id="msg" name="msg" rows="3" placeholder="Olá, Malthus!"></textarea>
-          <button type="button" class="btn-submit">Enviar Mensagem</button>
+          <article class="card card--featured">
+            <div class="card__header card__header--blue">🎨</div>
+            <div class="card__body">
+              <h3 class="card__title">Projeto Final — Portfólio</h3>
+              <p class="card__desc">
+                Fundação completa do projeto final: definição de problema, wireframe,
+                arquitetura ITCSS, variables.css, reset.css e HTML semântico acessível.
+                Implementação de Navbar BEM responsiva com hamburger menu.
+              </p>
+              <div class="card__meta">
+                <span class="card__badge">Aula 08–09</span>
+                <span class="card__badge">Em progresso</span>
+              </div>
+            </div>
+            <div class="card__footer">
+              <span style="font-size: var(--font-xs); color: var(--color-text-secondary);">HTML · CSS · JS</span>
+              <a href="#" class="card__link">Ver código →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__header card__header--green">📱</div>
+            <div class="card__body">
+              <h3 class="card__title">Layout Mobile-First</h3>
+              <p class="card__desc">
+                Exercício de layout com CSS Grid e media queries progressivas.
+                Três breakpoints: mobile, tablet e desktop.
+              </p>
+              <div class="card__meta">
+                <span class="card__badge">Aula 06</span>
+              </div>
+            </div>
+            <div class="card__footer">
+              <span style="font-size: var(--font-xs); color: var(--color-text-secondary);">CSS Grid</span>
+              <a href="#" class="card__link">Ver demo →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__header card__header--amber">🔤</div>
+            <div class="card__body">
+              <h3 class="card__title">Tipografia Fluida</h3>
+              <p class="card__desc">
+                Escala tipográfica com clamp() e variáveis CSS.
+                Fontes do Google Fonts com preconnect para performance.
+              </p>
+              <div class="card__meta">
+                <span class="card__badge">Aula 07</span>
+              </div>
+            </div>
+            <div class="card__footer">
+              <span style="font-size: var(--font-xs); color: var(--color-text-secondary);">CSS Custom Props</span>
+              <a href="#" class="card__link">Ver demo →</a>
+            </div>
+          </article>
+
         </div>
       </div>
+    </section>
 
-    </aside>
+    <!-- ── HABILIDADES ─────────────────────────────────────── -->
+    <section class="section" id="habilidades" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Skills</span>
+          <h2 class="section__title" id="skills-title">Habilidades Técnicas</h2>
+        </header>
+        <div style="max-width: 600px; display: flex; flex-direction: column; gap: var(--space-6);">
+
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom: var(--space-2);">
+              <span style="font-weight: var(--weight-medium); font-size: var(--font-sm);">HTML5 Semântico</span>
+              <span style="color: var(--color-primary-500); font-size: var(--font-sm); font-weight: var(--weight-bold);">92%</span>
+            </div>
+            <div style="height:8px; background: var(--color-gray-300); border-radius: var(--radius-full); overflow:hidden;" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="HTML5 Semântico: 92%">
+              <div class="skill-fill" data-width="92%" style="height:100%; width:0%; background: var(--color-primary-500); border-radius: var(--radius-full); transition: width 1s ease;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom: var(--space-2);">
+              <span style="font-weight: var(--weight-medium); font-size: var(--font-sm);">CSS Grid &amp; Flexbox</span>
+              <span style="color: var(--color-primary-500); font-size: var(--font-sm); font-weight: var(--weight-bold);">88%</span>
+            </div>
+            <div style="height:8px; background: var(--color-gray-300); border-radius: var(--radius-full); overflow:hidden;" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="CSS Grid e Flexbox: 88%">
+              <div class="skill-fill" data-width="88%" style="height:100%; width:0%; background: var(--color-primary-500); border-radius: var(--radius-full); transition: width 1s ease;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom: var(--space-2);">
+              <span style="font-weight: var(--weight-medium); font-size: var(--font-sm);">CSS Custom Properties</span>
+              <span style="color: var(--color-primary-500); font-size: var(--font-sm); font-weight: var(--weight-bold);">85%</span>
+            </div>
+            <div style="height:8px; background: var(--color-gray-300); border-radius: var(--radius-full); overflow:hidden;" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="CSS Custom Properties: 85%">
+              <div class="skill-fill" data-width="85%" style="height:100%; width:0%; background: var(--color-primary-500); border-radius: var(--radius-full); transition: width 1s ease;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom: var(--space-2);">
+              <span style="font-weight: var(--weight-medium); font-size: var(--font-sm);">Design Responsivo</span>
+              <span style="color: var(--color-primary-500); font-size: var(--font-sm); font-weight: var(--weight-bold);">90%</span>
+            </div>
+            <div style="height:8px; background: var(--color-gray-300); border-radius: var(--radius-full); overflow:hidden;" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Design Responsivo: 90%">
+              <div class="skill-fill" data-width="90%" style="height:100%; width:0%; background: var(--color-primary-500); border-radius: var(--radius-full); transition: width 1s ease;"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTATO / DESAFIO BTN ───────────────────────────── -->
+    <section class="section" id="contato" style="background: var(--color-bg-primary);" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Fale comigo</span>
+          <h2 class="section__title" id="contact-title">Contato</h2>
+        </header>
+
+        <!-- Showcase do btn.css — Desafio Extra -->
+        <div style="margin-bottom: var(--space-12);">
+          <h3 style="font-size: var(--font-base); margin-bottom: var(--space-4); color: var(--color-text-secondary);">Variantes de Botão (Desafio Extra — btn.css)</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center;">
+            <button class="btn btn--primary">btn--primary</button>
+            <button class="btn btn--outline">btn--outline</button>
+            <button class="btn btn--ghost">btn--ghost</button>
+            <button class="btn btn--primary btn--sm">btn--sm</button>
+            <button class="btn btn--primary btn--lg">btn--lg</button>
+          </div>
+        </div>
+
+        <div style="max-width: 480px; display: flex; flex-direction: column; gap: var(--space-6);">
+          <div>
+            <label for="nome" style="display:block; font-size:var(--font-sm); font-weight:var(--weight-medium); margin-bottom:var(--space-2);">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo"
+              style="width:100%; padding: var(--space-2) var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: var(--font-base); transition: border-color var(--transition-fast);" />
+          </div>
+          <div>
+            <label for="email" style="display:block; font-size:var(--font-sm); font-weight:var(--weight-medium); margin-bottom:var(--space-2);">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com"
+              style="width:100%; padding: var(--space-2) var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: var(--font-base);" />
+          </div>
+          <div>
+            <label for="msg" style="display:block; font-size:var(--font-sm); font-weight:var(--weight-medium); margin-bottom:var(--space-2);">Mensagem</label>
+            <textarea id="msg" name="msg" rows="4" placeholder="Olá, Malthus!"
+              style="width:100%; padding: var(--space-2) var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: var(--font-base); resize: vertical;"></textarea>
+          </div>
+          <button type="button" class="btn btn--primary" onclick="alert('Mensagem enviada! Obrigado.')">Enviar Mensagem</button>
+        </div>
+
+      </div>
+    </section>
 
   </main>
 
-  <!-- ═══════════════════ FOOTER ════════════════════════════ -->
-  <footer>
-    <div class="footer-inner">
-      <p class="footer-name">Malthus Albuquerque Pereira da Costa</p>
-      <p class="footer-sub">Aplicações para Internet · Aula 8 — Planejamento da Interface · Prof. Jeofton Costa</p>
-      <p class="footer-copy">&copy; 2026 — Estrutura ITCSS + Wireframe + Variables CSS</p>
+  <!-- ══════════════════════ FOOTER ════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <div class="footer__grid">
+
+        <!-- Coluna 1 — Brand -->
+        <div>
+          <p class="footer__brand-name">Malthus A. P. da Costa</p>
+          <p class="footer__brand-desc">
+            Portfólio acadêmico do curso de Aplicações para Internet.
+            Desenvolvido durante as aulas de Engenharia de Interface.
+          </p>
+        </div>
+
+        <!-- Coluna 2 — Navegação -->
+        <div>
+          <h3 class="footer__col-title">Navegar</h3>
+          <ul class="footer__links" role="list">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#disciplinas">Disciplinas</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3 — Aulas -->
+        <div>
+          <h3 class="footer__col-title">Aulas</h3>
+          <ul class="footer__links" role="list">
+            <li><a href="#">Aula 08 — Planejamento</a></li>
+            <li><a href="#">Aula 09 — Componentes</a></li>
+            <li><a href="#">Aula 10 — (próxima)</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4 — Contato -->
+        <div>
+          <h3 class="footer__col-title">Contato</h3>
+          <ul class="footer__links" role="list">
+            <li><a href="#contato">Formulário</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+
+      </div><!-- /footer__grid -->
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          &copy; <span id="footer-year">2026</span> — <strong>Malthus A. P. da Costa</strong>
+        </p>
+        <p class="footer__credits">
+          Engenharia de Interface · Prof. Jeofton Costa · Aula 09
+        </p>
+      </div>
+
     </div>
   </footer>
 

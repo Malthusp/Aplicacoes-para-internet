@@ -1,0 +1,96 @@
+/* ============================================================
+   btn.css — Componente: Botões BEM (Desafio Extra)
+   .btn / .btn--primary / .btn--outline / .btn--ghost
+   Aula 09 — Prof. Jeofton Costa
+   ============================================================ */
+
+/* ── BTN — base ───────────────────────────────────────────── */
+.btn {
+  --btn-bg:      transparent;
+  --btn-color:   var(--color-text-primary);
+  --btn-border:  transparent;
+  --btn-bg-hover:    transparent;
+  --btn-color-hover: var(--color-text-primary);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-6);
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: 2px solid var(--btn-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--transition-fast),
+              color var(--transition-fast),
+              border-color var(--transition-fast),
+              transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+.btn:hover {
+  background: var(--btn-bg-hover);
+  color: var(--btn-color-hover);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* ── :focus-visible — acessível ───────────────────────────── */
+.btn:focus-visible {
+  outline: 3px solid var(--color-primary-500);
+  outline-offset: 3px;
+  border-radius: var(--radius-md);
+}
+
+/* ── BTN--PRIMARY ─────────────────────────────────────────── */
+.btn--primary {
+  --btn-bg:          var(--color-primary-500);
+  --btn-color:       #ffffff;
+  --btn-border:      var(--color-primary-500);
+  --btn-bg-hover:    var(--color-primary-700);
+  --btn-color-hover: #ffffff;
+}
+
+.btn--primary:hover {
+  border-color: var(--color-primary-700);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── BTN--OUTLINE ─────────────────────────────────────────── */
+.btn--outline {
+  --btn-bg:          transparent;
+  --btn-color:       var(--color-primary-500);
+  --btn-border:      var(--color-primary-500);
+  --btn-bg-hover:    var(--color-primary-100);
+  --btn-color-hover: var(--color-primary-700);
+}
+
+/* ── BTN--GHOST ───────────────────────────────────────────── */
+.btn--ghost {
+  --btn-bg:          transparent;
+  --btn-color:       var(--color-text-secondary);
+  --btn-border:      transparent;
+  --btn-bg-hover:    var(--color-bg-secondary);
+  --btn-color-hover: var(--color-text-primary);
+}
+
+/* ── Tamanhos ─────────────────────────────────────────────── */
+.btn--sm {
+  padding: var(--space-1) var(--space-4);
+  font-size: var(--font-xs);
+}
+
+.btn--lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-base);
+}

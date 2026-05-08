@@ -1,0 +1,203 @@
+/* ============================================================
+   navbar.css — Componente: Navbar BEM
+   .header / .header__nav / .header__logo / .header__toggle
+   Aula 09 — Prof. Jeofton Costa
+   ============================================================ */
+
+/* ── HEADER — bloco ──────────────────────────────────────── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: padding var(--transition-normal),
+              box-shadow var(--transition-normal);
+}
+
+/* Modificador: scroll > 80px (adicionado via JS) */
+.header--scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* ── LOGO ─────────────────────────────────────────────────── */
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+}
+
+.header__logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--color-primary-500);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-sm);
+  border-radius: var(--radius-md);
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.header__logo-text {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-base);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+}
+
+.header__logo-text span {
+  display: block;
+  font-size: var(--font-xs);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-secondary);
+}
+
+/* ── NAV ──────────────────────────────────────────────────── */
+.header__nav {
+  display: none; /* mobile: oculto por padrão */
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+}
+
+.header__nav-link {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast),
+              background var(--transition-fast);
+}
+
+.header__nav-link:hover,
+.header__nav-link--active {
+  color: var(--color-primary-500);
+  background: var(--color-primary-100);
+}
+
+.header__nav-link:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* ── HAMBURGER BUTTON ─────────────────────────────────────── */
+.header__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: var(--space-2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.header__toggle:hover {
+  background: var(--color-bg-secondary);
+}
+
+.header__toggle:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+.header__toggle-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-text-primary);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-normal),
+              opacity var(--transition-fast);
+  transform-origin: center;
+}
+
+/* Estado aberto: anima para X */
+.header__toggle[aria-expanded="true"] .header__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.header__toggle[aria-expanded="true"] .header__toggle-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.header__toggle[aria-expanded="true"] .header__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── MENU MOBILE (aberto via JS: .header__nav--open) ─────── */
+.header__nav--open {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-bg-primary);
+  border-top: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-4);
+  animation: navSlideDown 200ms ease forwards;
+}
+
+@keyframes navSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.header__nav--open .header__nav-list {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-1);
+}
+
+.header__nav--open .header__nav-link {
+  padding: var(--space-4);
+  font-size: var(--font-base);
+}
+
+/* ── TABLET+ — nav sempre visível ───────────────────────── */
+@media (min-width: 768px) {
+  .header__toggle { display: none; }
+
+  .header__nav {
+    display: block !important; /* sobrepõe o display:none mobile */
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    border: none;
+    animation: none;
+  }
+
+  .header__nav-list {
+    flex-direction: row !important;
+  }
+}
