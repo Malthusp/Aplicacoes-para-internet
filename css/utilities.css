@@ -15,7 +15,7 @@
 
 .text-center { text-align: center; }
 .text-muted  { color: var(--color-text-secondary); }
-.text-primary-color { color: var(--color-primary-500); }
+.text-primary-color { color: var(--color-action-primary); }
 
 .mt-4  { margin-top: var(--space-4); }
 .mt-8  { margin-top: var(--space-8); }

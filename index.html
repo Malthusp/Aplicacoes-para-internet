@@ -12,22 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@700&display=swap" rel="stylesheet" />
 
   <!--
-    CSS na ordem ITCSS:
-    1. Settings  → variables.css
-    2. Base      → reset.css  → base.css
-    3. Layout    → layout.css
-    4. Components → navbar, hero*, card, footer, btn
-    5. Utilities → utilities.css
+    CSS — ponto de entrada único (main.css gerencia a ordem ITCSS):
+    Settings → Generic → Base → Layout → Components → Utilities
+    Para detalhes ver css/main.css e css/tokens/
   -->
-  <link rel="stylesheet" href="css/variables.css" />
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/components/navbar.css" />
-  <link rel="stylesheet" href="css/components/card.css" />
-  <link rel="stylesheet" href="css/components/footer.css" />
-  <link rel="stylesheet" href="css/components/btn.css" />
-  <link rel="stylesheet" href="css/utilities.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 

@@ -1,0 +1,28 @@
+/* ============================================================
+   main.css — Ponto de entrada único do projeto
+   Ordem ITCSS: Settings → Tools → Generic → Base → Layout
+              → Components → Utilities
+   Para usar: substituir todos os <link> do index.html por:
+   <link rel="stylesheet" href="css/main.css" />
+   ============================================================ */
+
+/* ── SETTINGS: Tokens de design ─────────────────────────── */
+@import url("variables.css");       /* hub → tokens/ (4 camadas) */
+
+/* ── GENERIC: Reset & normalização ─────────────────────── */
+@import url("reset.css");
+
+/* ── BASE: Tipografia elementar, links, inputs ─────────── */
+@import url("base.css");
+
+/* ── LAYOUT: Grid da página, hero, section ─────────────── */
+@import url("layout.css");
+
+/* ── COMPONENTS: Blocos BEM reutilizáveis ───────────────── */
+@import url("components/navbar.css");
+@import url("components/card.css");
+@import url("components/footer.css");
+@import url("components/btn.css");
+
+/* ── UTILITIES: Classes auxiliares de uso geral ─────────── */
+@import url("utilities.css");

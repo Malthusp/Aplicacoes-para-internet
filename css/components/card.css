@@ -1,7 +1,7 @@
 /* ============================================================
    card.css — Componente: Cards BEM
    .card / .card--featured / .card__header / .card__body
-   Aula 09 — Prof. Jeofton Costa
+   Tokens: usa APENAS semânticos — zero valores hardcoded.
    ============================================================ */
 
 /* ── CARD — bloco ─────────────────────────────────────────── */
@@ -12,8 +12,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-normal),
-              box-shadow var(--transition-normal);
+  transition:
+    transform   var(--transition-normal),
+    box-shadow  var(--transition-normal);
 }
 
 .card:hover {
@@ -21,44 +22,49 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* ── CARD — Modificador: destaque ────────────────────────── */
+/* ── CARD — Modificador: destaque ─────────────────────────── */
 .card--featured {
-  border-color: var(--color-primary-500);
+  border-color: var(--color-action-primary);
   position: relative;
 }
 
+/* ANTES: background: var(--color-primary-500); color: #fff   */
+/* DEPOIS: semântico + --color-on-action em vez de #fff       */
 .card--featured::before {
   content: "★ Destaque";
   position: absolute;
   top: var(--space-4);
   right: var(--space-4);
-  background: var(--color-primary-500);
-  color: #fff;
+  background: var(--color-action-primary);
+  color: var(--color-on-action);
   font-family: var(--font-body);
-  font-size: var(--font-xs);
-  font-weight: var(--weight-bold);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-full);
   letter-spacing: 0.04em;
 }
 
 /* ── CARD__HEADER — elemento ─────────────────────────────── */
+/* ANTES: font-size: 2.5rem ← hardcoded                       */
+/* DEPOIS: var(--font-size-icon)                              */
 .card__header {
   padding: var(--space-8) var(--space-6);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
+  font-size: var(--font-size-icon);
   line-height: 1;
 }
 
-/* Variações de cor para o header */
-.card__header--blue   { background: #EBF3FB; }
-.card__header--green  { background: #ECFDF5; }
-.card__header--amber  { background: #FFFBEB; }
-.card__header--purple { background: #F5F3FF; }
-.card__header--rose   { background: #FFF1F2; }
-.card__header--teal   { background: #F0FDFA; }
+/* ANTES: background: #EBF3FB; #ECFDF5; etc. ← hardcoded     */
+/* DEPOIS: tokens semânticos por intenção de cor              */
+.card__header--blue   { background: var(--color-card-header-blue);   }
+.card__header--green  { background: var(--color-card-header-green);  }
+.card__header--amber  { background: var(--color-card-header-amber);  }
+.card__header--purple { background: var(--color-card-header-purple); }
+.card__header--rose   { background: var(--color-card-header-rose);   }
+.card__header--teal   { background: var(--color-card-header-teal);   }
 
 /* ── CARD__BODY — elemento ───────────────────────────────── */
 .card__body {
@@ -71,17 +77,17 @@
 
 .card__title {
   font-family: var(--font-heading);
-  font-size: var(--font-md);
-  font-weight: var(--weight-bold);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
-  line-height: var(--leading-tight);
+  line-height: var(--line-height-tight);
 }
 
 .card__desc {
   font-family: var(--font-body);
-  font-size: var(--font-sm);
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
-  line-height: var(--leading-normal);
+  line-height: var(--line-height-normal);
   flex: 1;
   max-width: 100%;
 }
@@ -97,11 +103,11 @@
   display: inline-flex;
   align-items: center;
   padding: var(--space-1) var(--space-2);
-  background: var(--color-primary-100);
-  color: var(--color-primary-700);
+  background: var(--color-action-primary-subtle);
+  color: var(--color-action-primary-hover);
   font-family: var(--font-body);
-  font-size: var(--font-xs);
-  font-weight: var(--weight-medium);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
   border-radius: var(--radius-full);
 }
 
@@ -116,9 +122,9 @@
 
 .card__link {
   font-family: var(--font-body);
-  font-size: var(--font-sm);
-  font-weight: var(--weight-medium);
-  color: var(--color-primary-500);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-action-primary);
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
@@ -126,12 +132,12 @@
 }
 
 .card__link:hover {
-  color: var(--color-primary-700);
+  color: var(--color-action-primary-hover);
   gap: var(--space-2);
 }
 
 .card__link:focus-visible {
-  outline: 2px solid var(--color-primary-500);
+  outline: 2px solid var(--color-action-primary);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }

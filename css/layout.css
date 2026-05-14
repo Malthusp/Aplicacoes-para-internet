@@ -1,7 +1,7 @@
 /* ============================================================
    layout.css — Layout Layer (ITCSS)
    Grid do projeto: cards-grid + layout geral de página
-   Aula 09 — Prof. Jeofton Costa
+   Tokens: usa APENAS semânticos — zero valores hardcoded.
    ============================================================ */
 
 /* ── RESET DE FLUXO ───────────────────────────────────────── */
@@ -35,9 +35,9 @@ body {
 .section__eyebrow {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: var(--font-xs);
-  font-weight: var(--weight-bold);
-  color: var(--color-primary-500);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-action-primary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-2);
@@ -45,24 +45,28 @@ body {
 
 .section__title {
   font-family: var(--font-heading);
-  font-size: var(--font-xl);
-  font-weight: var(--weight-bold);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
-  line-height: var(--leading-tight);
+  line-height: var(--line-height-tight);
 }
 
 .section__subtitle {
-  font-size: var(--font-base);
+  font-size: var(--font-size-base);
   color: var(--color-text-secondary);
-  line-height: var(--leading-normal);
+  line-height: var(--line-height-normal);
   max-width: 60ch;
   margin-top: var(--space-2);
 }
 
 /* ── HERO ─────────────────────────────────────────────────── */
 .hero {
-  background: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-500) 100%);
-  color: #fff;
+  background: linear-gradient(
+    135deg,
+    var(--color-brand-strong) 0%,
+    var(--color-brand) 100%
+  );
+  color: var(--color-text-on-dark);
   padding-block: var(--space-16);
   position: relative;
   overflow: hidden;
@@ -97,27 +101,33 @@ body {
 .hero__content { max-width: 600px; }
 
 .hero__eyebrow {
-  font-size: var(--font-xs);
-  font-weight: var(--weight-bold);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(255,255,255,.7);
+  /* ANTES: color: rgba(255,255,255,.7) ← hardcoded           */
+  /* DEPOIS: token semântico                                   */
+  color: var(--color-text-on-dark-muted);
   margin-bottom: var(--space-4);
 }
 
 .hero__title {
   font-family: var(--font-heading);
-  font-size: var(--font-2xl);
-  font-weight: var(--weight-bold);
-  line-height: var(--leading-tight);
-  color: #fff;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  /* ANTES: color: #fff ← hardcoded                           */
+  /* DEPOIS: var(--color-text-on-dark)                        */
+  color: var(--color-text-on-dark);
   margin-bottom: var(--space-4);
 }
 
 .hero__desc {
-  font-size: var(--font-md);
-  color: rgba(255,255,255,.8);
-  line-height: var(--leading-normal);
+  font-size: var(--font-size-md);
+  /* ANTES: color: rgba(255,255,255,.8) ← hardcoded           */
+  /* DEPOIS: token semântico                                   */
+  color: var(--color-text-on-dark-soft);
+  line-height: var(--line-height-normal);
   margin-bottom: var(--space-8);
   max-width: 50ch;
 }
@@ -129,21 +139,18 @@ body {
 }
 
 /* ── CARDS GRID ───────────────────────────────────────────── */
-/* Mobile: 1 coluna */
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-6);
 }
 
-/* Tablet ≥ 768px: 2 colunas */
 @media (min-width: 768px) {
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Desktop ≥ 1200px: 3 colunas + featured ocupa 2 */
 @media (min-width: 1200px) {
   .cards-grid {
     grid-template-columns: repeat(3, 1fr);

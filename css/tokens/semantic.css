@@ -1,0 +1,69 @@
+/* ============================================================
+   tokens/semantic.css — Camada 2: Tokens Semânticos
+   Mapeia primitivos para INTENÇÕES de uso.
+   ✅ Componentes devem SEMPRE referenciar estes tokens.
+   ============================================================ */
+
+:root {
+  /* ── MARCA ────────────────────────────────────────────────── */
+  /* Identidade visual da marca — não usar diretamente em UI */
+  --color-brand:        var(--_color-blue-500);
+  --color-brand-subtle: var(--_color-blue-100);
+  --color-brand-strong: var(--_color-blue-700);
+
+  /* ── AÇÃO / INTERATIVO ────────────────────────────────────── */
+  /* Checkpoint: mudar --color-action-primary muda TODOS os
+     botões, links e elementos interativos automaticamente. */
+  --color-action-primary:        var(--_color-blue-500);
+  --color-action-primary-hover:  var(--_color-blue-700);
+  --color-action-primary-subtle: var(--_color-blue-100);
+  --color-on-action:             var(--_color-white);
+
+  /* ── TEXTO ────────────────────────────────────────────────── */
+  --color-text-primary:       var(--_color-gray-900);
+  --color-text-secondary:     var(--_color-gray-500);
+  --color-text-on-dark:       var(--_color-white);
+  --color-text-on-dark-muted: rgba(255, 255, 255, .75);
+  --color-text-on-dark-soft:  rgba(255, 255, 255, .8);
+
+  /* ── SUPERFÍCIES ──────────────────────────────────────────── */
+  --color-bg-primary:   var(--_color-white);
+  --color-bg-secondary: var(--_color-gray-50);
+  --color-bg-dark:      var(--_color-gray-900);
+
+  /* ── BORDAS ───────────────────────────────────────────────── */
+  --color-border:      var(--_color-gray-300);
+  --color-border-dark: var(--_color-gray-700);
+
+  /* ── FEEDBACK ─────────────────────────────────────────────── */
+  --color-success: var(--_color-green-700);
+  --color-warning: var(--_color-amber-500);
+  --color-danger:  var(--_color-red-700);
+
+  /* ── CARD HEADERS — backgrounds temáticos ─────────────────── */
+  --color-card-header-blue:   var(--_color-tint-blue);
+  --color-card-header-green:  var(--_color-tint-green);
+  --color-card-header-amber:  var(--_color-tint-amber);
+  --color-card-header-purple: var(--_color-tint-purple);
+  --color-card-header-rose:   var(--_color-tint-rose);
+  --color-card-header-teal:   var(--_color-tint-teal);
+
+  /* ── SOMBRAS ──────────────────────────────────────────────── */
+  --shadow-sm: var(--_shadow-sm);
+  --shadow-md: var(--_shadow-md);
+  --shadow-lg: var(--_shadow-lg);
+
+  /* ── BORDAS / RAIOS ───────────────────────────────────────── */
+  --radius-sm:   var(--_radius-sm);
+  --radius-md:   var(--_radius-md);
+  --radius-lg:   var(--_radius-lg);
+  --radius-full: var(--_radius-full);
+
+  /* ── TRANSIÇÕES ───────────────────────────────────────────── */
+  --transition-fast:   var(--_duration-fast)   var(--_easing-default);
+  --transition-normal: var(--_duration-normal) var(--_easing-default);
+
+  /* ── Z-INDEX ──────────────────────────────────────────────── */
+  --z-header:  var(--_z-header);
+  --z-overlay: var(--_z-overlay);
+}

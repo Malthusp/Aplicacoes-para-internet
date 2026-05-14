@@ -1,14 +1,14 @@
 /* ============================================================
-   btn.css — Componente: Botões BEM (Desafio Extra)
+   btn.css — Componente: Botões BEM
    .btn / .btn--primary / .btn--outline / .btn--ghost
-   Aula 09 — Prof. Jeofton Costa
+   Tokens: usa APENAS semânticos — zero valores hardcoded.
    ============================================================ */
 
 /* ── BTN — base ───────────────────────────────────────────── */
 .btn {
-  --btn-bg:      transparent;
-  --btn-color:   var(--color-text-primary);
-  --btn-border:  transparent;
+  --btn-bg:          transparent;
+  --btn-color:       var(--color-text-primary);
+  --btn-border:      transparent;
   --btn-bg-hover:    transparent;
   --btn-color-hover: var(--color-text-primary);
 
@@ -22,17 +22,18 @@
   border: 2px solid var(--btn-border);
   border-radius: var(--radius-md);
   font-family: var(--font-body);
-  font-size: var(--font-sm);
-  font-weight: var(--weight-medium);
-  line-height: var(--leading-tight);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
-  transition: background var(--transition-fast),
-              color var(--transition-fast),
-              border-color var(--transition-fast),
-              transform var(--transition-fast),
-              box-shadow var(--transition-fast);
+  transition:
+    background     var(--transition-fast),
+    color          var(--transition-fast),
+    border-color   var(--transition-fast),
+    transform      var(--transition-fast),
+    box-shadow     var(--transition-fast);
 }
 
 .btn:hover {
@@ -47,32 +48,34 @@
 
 /* ── :focus-visible — acessível ───────────────────────────── */
 .btn:focus-visible {
-  outline: 3px solid var(--color-primary-500);
+  outline: 3px solid var(--color-action-primary);
   outline-offset: 3px;
   border-radius: var(--radius-md);
 }
 
 /* ── BTN--PRIMARY ─────────────────────────────────────────── */
+/* ANTES: --btn-color: #ffffff  ← hardcoded                   */
+/* DEPOIS: --btn-color: var(--color-on-action)                 */
 .btn--primary {
-  --btn-bg:          var(--color-primary-500);
-  --btn-color:       #ffffff;
-  --btn-border:      var(--color-primary-500);
-  --btn-bg-hover:    var(--color-primary-700);
-  --btn-color-hover: #ffffff;
+  --btn-bg:          var(--color-action-primary);
+  --btn-color:       var(--color-on-action);
+  --btn-border:      var(--color-action-primary);
+  --btn-bg-hover:    var(--color-action-primary-hover);
+  --btn-color-hover: var(--color-on-action);
 }
 
 .btn--primary:hover {
-  border-color: var(--color-primary-700);
+  border-color: var(--color-action-primary-hover);
   box-shadow: var(--shadow-md);
 }
 
 /* ── BTN--OUTLINE ─────────────────────────────────────────── */
 .btn--outline {
   --btn-bg:          transparent;
-  --btn-color:       var(--color-primary-500);
-  --btn-border:      var(--color-primary-500);
-  --btn-bg-hover:    var(--color-primary-100);
-  --btn-color-hover: var(--color-primary-700);
+  --btn-color:       var(--color-action-primary);
+  --btn-border:      var(--color-action-primary);
+  --btn-bg-hover:    var(--color-action-primary-subtle);
+  --btn-color-hover: var(--color-action-primary-hover);
 }
 
 /* ── BTN--GHOST ───────────────────────────────────────────── */
@@ -87,10 +90,10 @@
 /* ── Tamanhos ─────────────────────────────────────────────── */
 .btn--sm {
   padding: var(--space-1) var(--space-4);
-  font-size: var(--font-xs);
+  font-size: var(--font-size-xs);
 }
 
 .btn--lg {
   padding: var(--space-4) var(--space-8);
-  font-size: var(--font-base);
+  font-size: var(--font-size-base);
 }

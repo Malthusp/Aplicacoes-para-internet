@@ -28,15 +28,15 @@ h4 { font-size: var(--font-md); }
 p { line-height: var(--leading-normal); }
 
 a {
-  color: var(--color-primary-500);
+  color: var(--color-action-primary);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
-a:hover { color: var(--color-primary-700); }
+a:hover { color: var(--color-action-primary-hover); }
 
 a:focus-visible {
-  outline: 2px solid var(--color-primary-500);
+  outline: 2px solid var(--color-action-primary);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }

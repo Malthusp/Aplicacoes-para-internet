@@ -1,7 +1,7 @@
 /* ============================================================
    navbar.css — Componente: Navbar BEM
    .header / .header__nav / .header__logo / .header__toggle
-   Aula 09 — Prof. Jeofton Costa
+   Tokens: usa APENAS semânticos — zero valores hardcoded.
    ============================================================ */
 
 /* ── HEADER — bloco ──────────────────────────────────────── */
@@ -12,11 +12,11 @@
   background: var(--color-bg-primary);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
-  transition: padding var(--transition-normal),
-              box-shadow var(--transition-normal);
+  transition:
+    padding    var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
 
-/* Modificador: scroll > 80px (adicionado via JS) */
 .header--scrolled {
   box-shadow: var(--shadow-md);
 }
@@ -39,17 +39,19 @@
   text-decoration: none;
 }
 
+/* ANTES: background: var(--color-primary-500); color: #fff  */
+/* DEPOIS: semântico em ambas as propriedades                 */
 .header__logo-mark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: var(--color-primary-500);
-  color: #fff;
+  background: var(--color-action-primary);
+  color: var(--color-on-action);
   font-family: var(--font-heading);
-  font-weight: var(--weight-bold);
-  font-size: var(--font-sm);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
   border-radius: var(--radius-md);
   letter-spacing: 0.03em;
   flex-shrink: 0;
@@ -57,22 +59,22 @@
 
 .header__logo-text {
   font-family: var(--font-heading);
-  font-weight: var(--weight-bold);
-  font-size: var(--font-base);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
   color: var(--color-text-primary);
-  line-height: var(--leading-tight);
+  line-height: var(--line-height-tight);
 }
 
 .header__logo-text span {
   display: block;
-  font-size: var(--font-xs);
-  font-weight: var(--weight-regular);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
   color: var(--color-text-secondary);
 }
 
 /* ── NAV ──────────────────────────────────────────────────── */
 .header__nav {
-  display: none; /* mobile: oculto por padrão */
+  display: none;
 }
 
 .header__nav-list {
@@ -86,22 +88,25 @@
   display: block;
   padding: var(--space-2) var(--space-4);
   font-family: var(--font-body);
-  font-size: var(--font-sm);
-  font-weight: var(--weight-medium);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   border-radius: var(--radius-md);
-  transition: color var(--transition-fast),
-              background var(--transition-fast);
+  transition:
+    color      var(--transition-fast),
+    background var(--transition-fast);
 }
 
+/* ANTES: color: var(--color-primary-500); background: var(--color-primary-100) */
+/* DEPOIS: action tokens semânticos                                               */
 .header__nav-link:hover,
 .header__nav-link--active {
-  color: var(--color-primary-500);
-  background: var(--color-primary-100);
+  color: var(--color-action-primary);
+  background: var(--color-action-primary-subtle);
 }
 
 .header__nav-link:focus-visible {
-  outline: 2px solid var(--color-primary-500);
+  outline: 2px solid var(--color-action-primary);
   outline-offset: 2px;
 }
 
@@ -110,7 +115,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
+  gap: var(--space-1);
   width: 40px;
   height: 40px;
   padding: var(--space-2);
@@ -127,7 +132,7 @@
 }
 
 .header__toggle:focus-visible {
-  outline: 2px solid var(--color-primary-500);
+  outline: 2px solid var(--color-action-primary);
   outline-offset: 2px;
 }
 
@@ -137,8 +142,9 @@
   height: 2px;
   background: var(--color-text-primary);
   border-radius: var(--radius-full);
-  transition: transform var(--transition-normal),
-              opacity var(--transition-fast);
+  transition:
+    transform var(--transition-normal),
+    opacity   var(--transition-fast);
   transform-origin: center;
 }
 
@@ -181,7 +187,7 @@
 
 .header__nav--open .header__nav-link {
   padding: var(--space-4);
-  font-size: var(--font-base);
+  font-size: var(--font-size-base);
 }
 
 /* ── TABLET+ — nav sempre visível ───────────────────────── */
@@ -189,7 +195,7 @@
   .header__toggle { display: none; }
 
   .header__nav {
-    display: block !important; /* sobrepõe o display:none mobile */
+    display: block !important;
     position: static;
     box-shadow: none;
     padding: 0;
