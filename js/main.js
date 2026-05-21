@@ -103,3 +103,34 @@ if (skillFills.length) {
     skillObserver.observe(fill);
   });
 }
+
+/* ── 7. DEMANDA 2: DETECÇÃO DE NAVEGAÇÃO POR TECLADO ─────────
+   Adiciona .using-keyboard ao <body> quando o usuário pressiona
+   Tab pela primeira vez. O CSS em a11y.css usa essa classe para
+   aplicar estilos de foco ainda mais evidentes.
+
+   Comportamento:
+   • Tab → adiciona .using-keyboard (foco reforçado ativo)
+   • Click do mouse → remove .using-keyboard (retorna ao padrão)
+
+   Isso evita o foco exagerado aparecer para usuários de mouse,
+   que não precisam de indicadores tão grandes.               */
+(function () {
+  const KEYBOARD_CLASS = 'using-keyboard';
+
+  function onFirstTab(e) {
+    if (e.key !== 'Tab') return;
+    document.body.classList.add(KEYBOARD_CLASS);
+    /* Após primeira detecção, monitora mouse para remover a classe */
+    document.addEventListener('mousedown', onMouseDown);
+  }
+
+  function onMouseDown() {
+    document.body.classList.remove(KEYBOARD_CLASS);
+    /* Re-registra o listener de Tab para detectar retorno ao teclado */
+    document.addEventListener('keydown', onFirstTab, { once: true });
+    document.removeEventListener('mousedown', onMouseDown);
+  }
+
+  document.addEventListener('keydown', onFirstTab, { once: true });
+})();

@@ -33,7 +33,10 @@ a {
   transition: color var(--transition-fast);
 }
 
-a:hover { color: var(--color-action-primary-hover); }
+/* FIX Falha 9: hover isolado para nao travar em touch */
+@media (hover: hover) and (pointer: fine) {
+  a:hover { color: var(--color-action-primary-hover); }
+}
 
 a:focus-visible {
   outline: 2px solid var(--color-action-primary);

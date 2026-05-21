@@ -2,6 +2,21 @@
    navbar.css — Componente: Navbar BEM
    .header / .header__nav / .header__logo / .header__toggle
    Tokens: usa APENAS semânticos — zero valores hardcoded.
+
+   CORREÇÕES (checklist de responsividade):
+   • Falha 3 — header__toggle: 40x40 -> 44x44px (WCAG 2.5.5)
+   • Falha 9 — :hover de nav-link e toggle dentro de
+               @media (hover: hover) and (pointer: fine)
+
+   REFATORAÇÃO @layer:
+   • Removidos os dois !important do breakpoint 768px.
+   • Estratégia de especificidade:
+     — display:block no .header__nav vence por ordem de fonte
+       (regra tardia na mesma camada derrota a regra anterior).
+     — flex-direction:row usa .header__nav .header__nav-list
+       (2 classes) em vez de .header__nav-list (1 classe),
+       empatando em especificidade com .header__nav--open
+       .header__nav-list e vencendo por ordem de fonte.
    ============================================================ */
 
 /* ── HEADER — bloco ──────────────────────────────────────── */
@@ -39,8 +54,6 @@
   text-decoration: none;
 }
 
-/* ANTES: background: var(--color-primary-500); color: #fff  */
-/* DEPOIS: semântico em ambas as propriedades                 */
 .header__logo-mark {
   display: inline-flex;
   align-items: center;
@@ -97,12 +110,17 @@
     background var(--transition-fast);
 }
 
-/* ANTES: color: var(--color-primary-500); background: var(--color-primary-100) */
-/* DEPOIS: action tokens semânticos                                               */
-.header__nav-link:hover,
 .header__nav-link--active {
   color: var(--color-action-primary);
   background: var(--color-action-primary-subtle);
+}
+
+/* FIX Falha 9: hover de nav-link isolado para nao travar em touch */
+@media (hover: hover) and (pointer: fine) {
+  .header__nav-link:hover {
+    color: var(--color-action-primary);
+    background: var(--color-action-primary-subtle);
+  }
 }
 
 .header__nav-link:focus-visible {
@@ -111,13 +129,14 @@
 }
 
 /* ── HAMBURGER BUTTON ─────────────────────────────────────── */
+/* FIX Falha 3: 40x40 -> 44x44px para cumprir WCAG 2.5.5 */
 .header__toggle {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: var(--space-1);
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   padding: var(--space-2);
   background: none;
   border: none;
@@ -127,8 +146,11 @@
   flex-shrink: 0;
 }
 
-.header__toggle:hover {
-  background: var(--color-bg-secondary);
+/* FIX Falha 9: hover do toggle isolado para nao travar em touch */
+@media (hover: hover) and (pointer: fine) {
+  .header__toggle:hover {
+    background: var(--color-bg-secondary);
+  }
 }
 
 .header__toggle:focus-visible {
@@ -185,17 +207,32 @@
   gap: var(--space-1);
 }
 
+/* FIX Falha 3: links do menu mobile com min-height 44px para toque */
 .header__nav--open .header__nav-link {
-  padding: var(--space-4);
+  min-height: 44px;
+  padding: var(--space-3) var(--space-4);
   font-size: var(--font-size-base);
+  display: flex;
+  align-items: center;
 }
 
 /* ── TABLET+ — nav sempre visível ───────────────────────── */
+/*
+   ANTES: display: block !important  →  DEPOIS: sem !important
+   Por que funciona: esta regra está DEPOIS de .header__nav { display: none }
+   na mesma camada, então vence por ordem de fonte.
+
+   ANTES: .header__nav-list { flex-direction: row !important }
+   DEPOIS: .header__nav .header__nav-list { flex-direction: row }
+   Por que funciona: seletor com 2 classes (.header__nav + .header__nav-list)
+   empata em especificidade com .header__nav--open .header__nav-list
+   e vence por ordem de fonte (esta regra é posterior no arquivo).
+*/
 @media (min-width: 768px) {
   .header__toggle { display: none; }
 
   .header__nav {
-    display: block !important;
+    display: block;
     position: static;
     box-shadow: none;
     padding: 0;
@@ -203,7 +240,7 @@
     animation: none;
   }
 
-  .header__nav-list {
-    flex-direction: row !important;
+  .header__nav .header__nav-list {
+    flex-direction: row;
   }
 }

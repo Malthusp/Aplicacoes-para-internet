@@ -62,10 +62,13 @@
 }
 
 /* ANTES: --color-primary-hover (inexistente)                     */
-.btn-hero:hover {
-  background: var(--color-action-primary-hover);
-  color: var(--color-on-action);
-  transform: translateY(-2px);
+/* FIX Falha 9: hover isolado para nao travar em touch */
+@media (hover: hover) and (pointer: fine) {
+  .btn-hero:hover {
+    background: var(--color-action-primary-hover);
+    color: var(--color-on-action);
+    transform: translateY(-2px);
+  }
 }
 
 /* ── DECORACAO ────────────────────────────────────────────── */

@@ -1,0 +1,121 @@
+/* ============================================================
+   a11y.css — Camada: Acessibilidade
+   Importado em @layer(a11y) — camada de MAIOR precedência.
+   Garante que estilos de foco NUNCA sejam suprimidos por
+   nenhuma outra camada do projeto.
+
+   DEMANDA 2: Navegação por teclado visível
+   18% dos usuários acessam por tablet com teclado físico.
+
+   Estratégia em 3 partes:
+     A) :focus-visible global — catch-all para qualquer elemento
+     B) Estilos específicos por tipo de elemento (input, card...)
+     C) .skip-link — atalho "Pular para o conteúdo"
+   ============================================================ */
+
+/* ── A. CATCH-ALL: foco visível em QUALQUER elemento ─────────
+   :focus-visible aplica apenas quando o browser detecta
+   navegação por teclado (Tab, setas) — não dispara no click.
+   Os componentes já têm regras próprias; este bloco é a rede
+   de segurança para qualquer elemento não mapeado.           */
+:focus-visible {
+  outline: 3px solid var(--color-action-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Remove o outline padrão feio dos browsers, mas APENAS quando
+   :focus-visible está disponível (browsers modernos).
+   Browsers que não suportam :focus-visible ignoram este bloco
+   e mantêm o outline nativo — progressive enhancement.       */
+@supports selector(:focus-visible) {
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* ── B. ESTILOS ESPECÍFICOS POR TIPO ─────────────────────── */
+
+/* Inputs e textareas:
+   reset.css remove o outline nativo (outline: none).
+   Este bloco em layer(a11y) — camada superior — reintroduz
+   um foco personalizado que é melhor que o nativo.           */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-action-primary);
+  outline-offset: 0;
+  border-radius: var(--radius-sm);
+  /* Anel de glow para contrastar com o fundo do campo */
+  box-shadow: 0 0 0 4px var(--color-action-primary-subtle);
+}
+
+/* Botões — reforça o padrão do btn.css com espessura maior */
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid var(--color-action-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-md);
+}
+
+/* Cards clicáveis */
+.card:focus-visible,
+.card__link:focus-visible {
+  outline: 3px solid var(--color-action-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-lg);
+}
+
+/* ── C. SKIP LINK — "Pular para o conteúdo principal" ────────
+   Elemento invisível que aparece APENAS quando recebe foco
+   via Tab. Permite que usuários de teclado pulem a navbar
+   e cheguem diretamente ao conteúdo.
+   HTML: <a href="#main-content" class="skip-link">Pular...</a>
+   (inserir como primeiro filho do <body>)                    */
+.skip-link {
+  position: absolute;
+  top: -100%;          /* escondido fora da tela por padrão  */
+  left: var(--space-4);
+  z-index: calc(var(--z-header) + 10);
+
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-action-primary);
+  color: var(--color-on-action);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Transição suave ao aparecer */
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;              /* sobe para a tela ao receber foco    */
+  outline: 3px solid var(--color-on-action);
+  outline-offset: -3px;
+}
+
+/* ── D. INDICADOR VISUAL DE MODO TECLADO ─────────────────────
+   O JS adiciona .using-keyboard ao <body> quando detecta Tab.
+   Permite aplicar estilos de foco ainda mais evidentes para
+   usuários que explicitamente navegam por teclado.
+   (Estilo opcional — o :focus-visible acima já cobre o básico) */
+.using-keyboard :focus-visible {
+  outline-width: 4px;
+  box-shadow: 0 0 0 6px var(--color-action-primary-subtle);
+}
+
+/* ── E. ARIA: elementos com role interativo ──────────────────
+   Cobre elementos com roles ARIA que não são elementos HTML
+   nativos de formulário/link, mas recebem foco via JS.       */
+[tabindex]:focus-visible,
+[role="tab"]:focus-visible,
+[role="menuitem"]:focus-visible,
+[role="option"]:focus-visible {
+  outline: 3px solid var(--color-action-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

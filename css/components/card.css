@@ -2,6 +2,11 @@
    card.css — Componente: Cards BEM
    .card / .card--featured / .card__header / .card__body
    Tokens: usa APENAS semânticos — zero valores hardcoded.
+
+   CORRECAO (checklist de responsividade):
+   • Falha 9 — .card:hover e .card__link:hover dentro de
+               @media (hover: hover) and (pointer: fine)
+               para evitar estado travado em touch
    ============================================================ */
 
 /* ── CARD — bloco ─────────────────────────────────────────── */
@@ -17,9 +22,12 @@
     box-shadow  var(--transition-normal);
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+/* FIX Falha 9: elevacao do card isolada para nao travar em touch */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
 }
 
 /* ── CARD — Modificador: destaque ─────────────────────────── */
@@ -28,10 +36,8 @@
   position: relative;
 }
 
-/* ANTES: background: var(--color-primary-500); color: #fff   */
-/* DEPOIS: semântico + --color-on-action em vez de #fff       */
 .card--featured::before {
-  content: "★ Destaque";
+  content: "Destaque";
   position: absolute;
   top: var(--space-4);
   right: var(--space-4);
@@ -46,8 +52,6 @@
 }
 
 /* ── CARD__HEADER — elemento ─────────────────────────────── */
-/* ANTES: font-size: 2.5rem ← hardcoded                       */
-/* DEPOIS: var(--font-size-icon)                              */
 .card__header {
   padding: var(--space-8) var(--space-6);
   display: flex;
@@ -57,8 +61,6 @@
   line-height: 1;
 }
 
-/* ANTES: background: #EBF3FB; #ECFDF5; etc. ← hardcoded     */
-/* DEPOIS: tokens semânticos por intenção de cor              */
 .card__header--blue   { background: var(--color-card-header-blue);   }
 .card__header--green  { background: var(--color-card-header-green);  }
 .card__header--amber  { background: var(--color-card-header-amber);  }
@@ -128,12 +130,17 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  transition: gap var(--transition-fast);
+  /* FIX Falha 3: min-height para area de toque adequada */
+  min-height: 44px;
+  transition: gap var(--transition-fast), color var(--transition-fast);
 }
 
-.card__link:hover {
-  color: var(--color-action-primary-hover);
-  gap: var(--space-2);
+/* FIX Falha 9: animacao do link isolada para nao travar em touch */
+@media (hover: hover) and (pointer: fine) {
+  .card__link:hover {
+    color: var(--color-action-primary-hover);
+    gap: var(--space-2);
+  }
 }
 
 .card__link:focus-visible {
