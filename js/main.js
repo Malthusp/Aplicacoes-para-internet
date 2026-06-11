@@ -134,3 +134,42 @@ if (skillFills.length) {
 
   document.addEventListener('keydown', onFirstTab, { once: true });
 })();
+
+/* ── 8. TEMA ESCURO / CLARO ───────────────────────────────────
+   Toggle de tema com persistência no localStorage.
+   Fallback automático para a preferência do sistema (prefers-color-scheme).
+   O tema inicial é aplicado no <head> (anti-FOUC); aqui só gerenciamos
+   o botão e os eventos de mudança.                           */
+(function () {
+  const STORAGE_KEY = 'theme';
+  const themeBtn    = document.getElementById('theme-toggle');
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    if (themeBtn) {
+      themeBtn.setAttribute(
+        'aria-label',
+        theme === 'dark' ? 'Mudar para tema claro' : 'Mudar para tema escuro'
+      );
+    }
+  }
+
+  // Sincronizar aria-label com o tema que já foi aplicado no <head>
+  applyTheme(document.documentElement.dataset.theme || 'light');
+
+  // Clique no botão
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem(STORAGE_KEY, next);
+    });
+  }
+
+  // Acompanhar mudanças no SO quando não há preferência manual salva
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+})();

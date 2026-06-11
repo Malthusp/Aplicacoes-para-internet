@@ -244,3 +244,42 @@
     flex-direction: row;
   }
 }
+
+/* ── THEME TOGGLE ─────────────────────────────────────────── */
+.header__theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: var(--space-2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  transition:
+    background var(--transition-fast),
+    color      var(--transition-fast);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .header__theme-toggle:hover {
+    background: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+  }
+}
+
+.header__theme-toggle:focus-visible {
+  outline: 2px solid var(--color-action-primary);
+  outline-offset: 2px;
+}
+
+/* Lua → visível no tema claro (ação: ir para escuro)
+   Sol → visível no tema escuro (ação: voltar ao claro) */
+.header__theme-toggle .theme-icon--sun  { display: none;  }
+.header__theme-toggle .theme-icon--moon { display: block; }
+
+[data-theme="dark"] .header__theme-toggle .theme-icon--sun  { display: block; }
+[data-theme="dark"] .header__theme-toggle .theme-icon--moon { display: none;  }
