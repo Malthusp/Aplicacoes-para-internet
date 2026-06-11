@@ -1,8 +1,4 @@
-/* ============================================================
-   base.css — Base Layer (ITCSS)
-   Estilos elementares: body, tipografia, links
-   Aula 09 — Prof. Jeofton Costa
-   ============================================================ */
+
 
 body {
   font-family: var(--font-body);
@@ -33,7 +29,6 @@ a {
   transition: color var(--transition-fast);
 }
 
-/* FIX Falha 9: hover isolado para nao travar em touch */
 @media (hover: hover) and (pointer: fine) {
   a:hover { color: var(--color-action-primary-hover); }
 }

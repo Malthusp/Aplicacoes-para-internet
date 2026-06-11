@@ -1,25 +1,5 @@
-/* ============================================================
-   navbar.css — Componente: Navbar BEM
-   .header / .header__nav / .header__logo / .header__toggle
-   Tokens: usa APENAS semânticos — zero valores hardcoded.
 
-   CORREÇÕES (checklist de responsividade):
-   • Falha 3 — header__toggle: 40x40 -> 44x44px (WCAG 2.5.5)
-   • Falha 9 — :hover de nav-link e toggle dentro de
-               @media (hover: hover) and (pointer: fine)
 
-   REFATORAÇÃO @layer:
-   • Removidos os dois !important do breakpoint 768px.
-   • Estratégia de especificidade:
-     — display:block no .header__nav vence por ordem de fonte
-       (regra tardia na mesma camada derrota a regra anterior).
-     — flex-direction:row usa .header__nav .header__nav-list
-       (2 classes) em vez de .header__nav-list (1 classe),
-       empatando em especificidade com .header__nav--open
-       .header__nav-list e vencendo por ordem de fonte.
-   ============================================================ */
-
-/* ── HEADER — bloco ──────────────────────────────────────── */
 .header {
   position: sticky;
   top: 0;
@@ -46,7 +26,6 @@
   gap: var(--space-4);
 }
 
-/* ── LOGO ─────────────────────────────────────────────────── */
 .header__logo {
   display: flex;
   align-items: center;
@@ -85,7 +64,6 @@
   color: var(--color-text-secondary);
 }
 
-/* ── NAV ──────────────────────────────────────────────────── */
 .header__nav {
   display: none;
 }
@@ -115,7 +93,6 @@
   background: var(--color-action-primary-subtle);
 }
 
-/* FIX Falha 9: hover de nav-link isolado para nao travar em touch */
 @media (hover: hover) and (pointer: fine) {
   .header__nav-link:hover {
     color: var(--color-action-primary);
@@ -128,8 +105,6 @@
   outline-offset: 2px;
 }
 
-/* ── HAMBURGER BUTTON ─────────────────────────────────────── */
-/* FIX Falha 3: 40x40 -> 44x44px para cumprir WCAG 2.5.5 */
 .header__toggle {
   display: flex;
   flex-direction: column;
@@ -146,7 +121,6 @@
   flex-shrink: 0;
 }
 
-/* FIX Falha 9: hover do toggle isolado para nao travar em touch */
 @media (hover: hover) and (pointer: fine) {
   .header__toggle:hover {
     background: var(--color-bg-secondary);
@@ -170,7 +144,6 @@
   transform-origin: center;
 }
 
-/* Estado aberto: anima para X */
 .header__toggle[aria-expanded="true"] .header__toggle-bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -182,7 +155,6 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ── MENU MOBILE (aberto via JS: .header__nav--open) ─────── */
 .header__nav--open {
   display: block;
   position: absolute;
@@ -207,7 +179,6 @@
   gap: var(--space-1);
 }
 
-/* FIX Falha 3: links do menu mobile com min-height 44px para toque */
 .header__nav--open .header__nav-link {
   min-height: 44px;
   padding: var(--space-3) var(--space-4);
@@ -216,18 +187,6 @@
   align-items: center;
 }
 
-/* ── TABLET+ — nav sempre visível ───────────────────────── */
-/*
-   ANTES: display: block !important  →  DEPOIS: sem !important
-   Por que funciona: esta regra está DEPOIS de .header__nav { display: none }
-   na mesma camada, então vence por ordem de fonte.
-
-   ANTES: .header__nav-list { flex-direction: row !important }
-   DEPOIS: .header__nav .header__nav-list { flex-direction: row }
-   Por que funciona: seletor com 2 classes (.header__nav + .header__nav-list)
-   empata em especificidade com .header__nav--open .header__nav-list
-   e vence por ordem de fonte (esta regra é posterior no arquivo).
-*/
 @media (min-width: 768px) {
   .header__toggle { display: none; }
 
@@ -245,7 +204,6 @@
   }
 }
 
-/* ── THEME TOGGLE ─────────────────────────────────────────── */
 .header__theme-toggle {
   display: flex;
   align-items: center;
@@ -276,8 +234,6 @@
   outline-offset: 2px;
 }
 
-/* Lua → visível no tema claro (ação: ir para escuro)
-   Sol → visível no tema escuro (ação: voltar ao claro) */
 .header__theme-toggle .theme-icon--sun  { display: none;  }
 .header__theme-toggle .theme-icon--moon { display: block; }
 

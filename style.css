@@ -1,11 +1,5 @@
-/* ============================================================
-   Projeto Prático — Aula 7: Layout Moderno e Responsividade
-   Aluno: Malthus Albuquerque Pereira da Costa
-   Prof. Jeofton Costa | Aplicações para Internet
-   Stack: HTML5 / CSS3
-   ============================================================ */
 
-/* ── RESET GLOBAL ─────────────────────────────────────────── */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -23,27 +17,21 @@ input, select, textarea {
   box-sizing: border-box;
 }
 
-/* ── VARIÁVEIS CSS ────────────────────────────────────────── */
 :root {
-  /* Breakpoints como referência comentada (não funcionam em @media) */
-  /* --bp-sm: 480px; --bp-md: 768px; --bp-lg: 1024px; --bp-xl: 1280px; */
 
-  /* Tokens de espaçamento */
-  --space-xs: 0.5rem;
+--space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
   --space-lg: 2rem;
   --space-xl: 3rem;
 
-  /* Tipografia fluida com clamp() */
-  --fs-base: clamp(0.875rem, 2vw, 1rem);
+--fs-base: clamp(0.875rem, 2vw, 1rem);
   --fs-h1:   clamp(1.75rem, 5vw, 3.5rem);
   --fs-h2:   clamp(1.25rem, 3vw, 1.875rem);
   --fs-h3:   clamp(1rem, 2.5vw, 1.25rem);
   --fs-sm:   clamp(0.75rem, 1.5vw, 0.875rem);
 
-  /* Paleta de cores */
-  --clr-bg:        #f7f5f0;
+--clr-bg:        #f7f5f0;
   --clr-surface:   #ffffff;
   --clr-dark:      #1a1a2e;
   --clr-mid:       #2d2d44;
@@ -54,19 +42,16 @@ input, select, textarea {
   --clr-tag-bg:    #f0ede8;
   --clr-tag-text:  #4a4a6a;
 
-  /* Sombras */
-  --shadow-sm: 0 2px 8px rgba(26, 26, 46, 0.08);
+--shadow-sm: 0 2px 8px rgba(26, 26, 46, 0.08);
   --shadow-md: 0 4px 20px rgba(26, 26, 46, 0.12);
   --shadow-lg: 0 8px 40px rgba(26, 26, 46, 0.16);
 
-  /* Bordas */
-  --radius-sm: 6px;
+--radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-full: 999px;
 }
 
-/* ── BASE — Mobile-First ──────────────────────────────────── */
 body {
   font-family: 'DM Sans', sans-serif;
   font-size: var(--fs-base);
@@ -86,7 +71,6 @@ a {
 }
 a:hover { color: var(--clr-dark); }
 
-/* ── HEADER — Mobile: empilhado ───────────────────────────── */
 header {
   display: flex;
   flex-direction: column;
@@ -152,8 +136,7 @@ header {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* ── HERO ─────────────────────────────────────────────────── */
-.hero {
+.principal {
   background: linear-gradient(135deg, var(--clr-dark) 0%, var(--clr-mid) 100%);
   color: white;
   padding: var(--space-xl) var(--space-sm);
@@ -168,7 +151,7 @@ header {
   gap: var(--space-md);
 }
 
-.hero-eyebrow {
+.principal-eyebrow {
   font-size: var(--fs-sm);
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -176,23 +159,23 @@ header {
   font-weight: 500;
 }
 
-.hero h1 {
+.principal h1 {
   line-height: 1.05;
   color: white;
 }
 
-.hero h1 em {
+.principal h1 em {
   font-style: italic;
   color: var(--clr-accent2);
 }
 
-.hero-desc {
+.principal-desc {
   color: rgba(255, 255, 255, 0.7);
   max-width: 40ch;
   font-size: clamp(0.95rem, 2vw, 1.1rem);
 }
 
-.btn-hero {
+.btn-principal {
   display: inline-block;
   background: var(--clr-accent);
   color: white;
@@ -204,15 +187,14 @@ header {
   box-shadow: 0 4px 16px rgba(212, 98, 42, 0.4);
 }
 
-.btn-hero:hover {
+.btn-principal:hover {
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(212, 98, 42, 0.5);
   background: #c05520;
 }
 
-/* Decoração do hero */
-.hero-deco {
+.principal-deco {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -241,7 +223,6 @@ header {
   user-select: none;
 }
 
-/* ── MAIN GRID — Mobile: coluna única ─────────────────────── */
 main {
   display: grid;
   grid-template-columns: 1fr;
@@ -254,7 +235,6 @@ main {
   margin-inline: auto;
 }
 
-/* ── SIDEBAR ──────────────────────────────────────────────── */
 .sidebar {
   grid-area: sidebar;
 }
@@ -327,7 +307,6 @@ main {
   margin-bottom: var(--space-xs);
 }
 
-/* ── TAGS ─────────────────────────────────────────────────── */
 .tech-tags, .card-tags {
   display: flex;
   flex-wrap: wrap;
@@ -346,7 +325,6 @@ main {
 
 .tag--sm { font-size: 0.7rem; padding: 0.2rem 0.55rem; }
 
-/* ── CONTEÚDO PRINCIPAL ───────────────────────────────────── */
 .content {
   grid-area: content;
   display: flex;
@@ -389,7 +367,6 @@ main {
   font-style: italic;
 }
 
-/* ── CARDS GRID — mobile: coluna única, depois auto-fit ────── */
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -440,7 +417,6 @@ main {
 .card-body h3 { color: var(--clr-dark); font-size: 1rem; }
 .card-body p  { color: var(--clr-muted); font-size: var(--fs-sm); margin: 0; }
 
-/* ── HABILIDADES ──────────────────────────────────────────── */
 .skills-list {
   display: flex;
   flex-direction: column;
@@ -478,10 +454,9 @@ main {
   to   { width: var(--w); }
 }
 
-/* ── ASIDE ────────────────────────────────────────────────── */
 .aside {
   grid-area: aside;
-  display: none; /* oculto no mobile */
+  display: none; 
   flex-direction: column;
   gap: var(--space-md);
 }
@@ -510,7 +485,6 @@ main {
 
 .aside-title--light { color: rgba(255, 255, 255, 0.5); }
 
-/* Checklist */
 .checklist {
   list-style: none;
   display: flex;
@@ -529,7 +503,6 @@ main {
 .check-done  { color: #16a34a !important; font-weight: 500; }
 .check-extra { color: var(--clr-accent) !important; }
 
-/* Breakpoints list */
 .bp-list {
   list-style: none;
   display: flex;
@@ -558,7 +531,6 @@ main {
   border-radius: var(--radius-sm);
 }
 
-/* Formulário de contato */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -610,7 +582,6 @@ main {
 .btn-submit:hover { background: #c05520; transform: translateY(-1px); }
 .btn-submit:active { transform: translateY(0); }
 
-/* ── FOOTER ───────────────────────────────────────────────── */
 footer {
   background: var(--clr-dark);
   padding: var(--space-lg) var(--space-sm);
@@ -638,7 +609,6 @@ footer {
   color: rgba(255, 255, 255, 0.4);
 }
 
-/* ── TABLET: >= 768px ─────────────────────────────────────── */
 @media (min-width: 768px) {
   header {
     flex-direction: row;
@@ -646,14 +616,14 @@ footer {
     padding: var(--space-sm) var(--space-lg);
   }
 
-  .hero {
+  .principal {
     text-align: left;
     align-items: flex-start;
     padding: var(--space-xl) var(--space-lg);
     min-height: 70vh;
   }
 
-  .hero-desc { max-width: 50ch; }
+  .principal-desc { max-width: 50ch; }
 
   main {
     grid-template-columns: 240px 1fr;
@@ -665,11 +635,10 @@ footer {
   }
 
   .aside {
-    display: none; /* aside aparece apenas em desktop */
+    display: none; 
   }
 }
 
-/* ── DESKTOP: >= 1024px ───────────────────────────────────── */
 @media (min-width: 1024px) {
   main {
     grid-template-columns: 260px 1fr 220px;
@@ -679,23 +648,21 @@ footer {
   }
 
   .aside {
-    display: flex; /* volta a aparecer no desktop */
+    display: flex; 
   }
 
-  .hero {
+  .principal {
     min-height: 60vh;
     padding: var(--space-xl) var(--space-xl);
   }
 }
 
-/* ── EXTRA LARGE: >= 1280px ───────────────────────────────── */
 @media (min-width: 1280px) {
   main {
     grid-template-columns: 280px 1fr 240px;
   }
 }
 
-/* ── DESAFIO EXTRA: prefers-color-scheme (modo escuro) ──── */
 @media (prefers-color-scheme: dark) {
   :root {
     --clr-bg:       #0f0f1a;
@@ -714,7 +681,6 @@ footer {
   .card       { background: #22223a; }
 }
 
-/* ── DESAFIO EXTRA: prefers-reduced-motion ───────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

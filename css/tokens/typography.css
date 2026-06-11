@@ -1,46 +1,29 @@
-/* ============================================================
-   tokens/typography.css — Camada 4: Sistema Tipográfico
-   Escala modular com razão 1.25 (Major Third).
-   Nomenclatura semântica: --font-size-*, --font-weight-*, etc.
-   ============================================================ */
+
 
 :root {
-  /* ── FAMÍLIAS ──────────────────────────────────────────────── */
+  
   --font-heading: "Poppins", system-ui, sans-serif;
   --font-body:    "Inter",   system-ui, sans-serif;
 
-  /* ── ESCALA DE TAMANHOS ───────────────────────────────────── */
-  /* FIX Falha 2: xs e sm reancoramos no mínimo 14px (0.875rem)
-     para garantir legibilidade em 360px sem necessidade de zoom.
-     FIX Falha 11: 2xl e xl usam clamp() para escala fluida —
-     encolhem suavemente em mobile, nunca abaixo do mínimo. */
+--font-size-xs:   0.875rem;                              
+  --font-size-sm:   0.9375rem;                             
+  --font-size-base: 1.000rem;                              
+  --font-size-md:   1.250rem;                              
+  --font-size-lg:   1.563rem;                              
 
-  /* Utilitários / badges / metadata — mín. 14px */
-  --font-size-xs:   0.875rem;                              /*  14px fixo     */
-  --font-size-sm:   0.9375rem;                             /*  15px fixo     */
-  --font-size-base: 1.000rem;                              /*  16px fixo     */
-  --font-size-md:   1.250rem;                              /*  20px fixo     */
-  --font-size-lg:   1.563rem;                              /*  25px fixo     */
+--font-size-xl:   clamp(1.563rem, 3.5vw + 0.5rem, 1.953rem);  
+  --font-size-2xl:  clamp(1.750rem, 4.5vw + 0.5rem, 2.441rem);  
 
-  /* Headings fluidos: crescem com o viewport, mínimo garantido */
-  --font-size-xl:   clamp(1.563rem, 3.5vw + 0.5rem, 1.953rem);  /* 25→31px */
-  --font-size-2xl:  clamp(1.750rem, 4.5vw + 0.5rem, 2.441rem);  /* 28→39px */
+  --font-size-icon: 2.500rem;   
 
-  --font-size-icon: 2.500rem;   /* ícones em card headers */
-
-  /* ── PESOS ────────────────────────────────────────────────── */
-  --font-weight-regular: 400;
+--font-weight-regular: 400;
   --font-weight-medium:  500;
   --font-weight-bold:    700;
 
-  /* ── ALTURAS DE LINHA ─────────────────────────────────────── */
-  --line-height-tight:  1.2;
+--line-height-tight:  1.2;
   --line-height-normal: 1.5;
 
-  /* ── ALIASES RETROCOMPATÍVEIS ─────────────────────────────── */
-  /* Mantidos para evitar quebras durante a transição.
-     Remover após atualizar todos os componentes. */
-  --font-xs:        var(--font-size-xs);
+--font-xs:        var(--font-size-xs);
   --font-sm:        var(--font-size-sm);
   --font-base:      var(--font-size-base);
   --font-md:        var(--font-size-md);
@@ -54,32 +37,7 @@
   --leading-normal: var(--line-height-normal);
 }
 
-/* ── DEMANDA 1: Legibilidade em projetor / TV ─────────────────
-   Contexto: 1920×1080 visto a 3 metros.
-   Técnica: font-size fluido no :root via clamp().
-   Por que funciona: todos os tokens de tamanho e espaçamento
-   usam rem → herdam a escala automaticamente, sem tocar nos
-   valores declarados acima. Zero manutenção futura.
-
-   Escala por viewport:
-     ≤ 1280px  →  16px (mínimo — clamp floor)
-       1600px  →  17.6px  (1.1 × 16 = 1.1vw)
-       1920px  →  20px  (máximo — clamp ceiling)
-
-   Resultado no projetor 1920px:
-     --font-size-base = 1rem = 20px  (era 16px → +25%)
-     --font-size-sm   = 0.9375rem ≈ 18.75px
-     --font-size-lg   = 1.563rem ≈ 31.25px
-     --font-size-2xl  = clamp sobe junto: máx. ~48px
-     --space-4        = 1rem = 20px (mais respiro no layout)
-   ──────────────────────────────────────────────────────────── */
 :root {
   font-size: clamp(1rem, 0.25rem + 1.1vw, 1.25rem);
-  /*
-    clamp(mínimo, preferido, máximo)
-    • 1rem    = 16px — nunca menor (legibilidade mobile)
-    • 1.1vw   = cresce suavemente com a largura do viewport
-    • 1.25rem = 20px — teto para projetor / telas muito largas
-    (0.25rem de offset evita salto brusco no ponto de inflexão)
-  */
+  
 }

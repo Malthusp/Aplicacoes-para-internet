@@ -1,48 +1,23 @@
-/* ============================================================
-   main.css — Ponto de entrada único do projeto
-   Arquitetura: @layer cascade (CSS Cascade Level 5)
 
-   Camadas em ordem CRESCENTE de precedência:
-     tokens → reset → base → layout → components → overrides → a11y
 
-   Regra: estilos em uma camada posterior sempre vencem
-   estilos em camadas anteriores, independente de especificidade.
-
-   ADIÇÕES (demandas do cliente):
-   • layer(a11y) — nova camada ACIMA de tudo, garante que
-     estilos de foco jamais sejam sobrescritos por componentes.
-   • typography.css atualizado — font-size fluido no :root
-     para legibilidade em projetores (1920×1080 / 3 metros).
-   ============================================================ */
-
-/* ── 1. Declaração global das camadas (ordem importa) ─────── */
 @layer tokens, reset, base, layout, components, overrides, a11y;
 
-/* ── 2. TOKENS: variáveis CSS ─────────────────────────────── */
 @import url("tokens/primitives.css") layer(tokens);
 @import url("tokens/semantic.css")   layer(tokens);
 @import url("tokens/spacing.css")    layer(tokens);
 @import url("tokens/typography.css") layer(tokens);
 
-/* ── 3. RESET: normalização cross-browser ─────────────────── */
 @import url("reset.css") layer(reset);
 
-/* ── 4. BASE: tipografia elementar, links, inputs ─────────── */
 @import url("base.css") layer(base);
 
-/* ── 5. LAYOUT: grid da página, hero, section ─────────────── */
 @import url("layout.css") layer(layout);
 
-/* ── 6. COMPONENTS: blocos BEM reutilizáveis ──────────────── */
 @import url("components/navbar.css")  layer(components);
 @import url("components/card.css")    layer(components);
 @import url("components/footer.css")  layer(components);
 @import url("components/btn.css")     layer(components);
 
-/* ── 7. OVERRIDES: utilitários e ajustes de página ────────── */
 @import url("utilities.css") layer(overrides);
 
-/* ── 8. A11Y: acessibilidade — foco, skip-link, ARIA ─────────
-   Camada de MÁXIMA precedência. Nenhum componente consegue
-   suprimir estilos de foco definidos aqui.                   */
 @import url("a11y.css") layer(a11y);

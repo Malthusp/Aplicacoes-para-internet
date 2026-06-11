@@ -1,11 +1,5 @@
-/**
- * main.js — Scripts do Projeto
- * Portfólio Malthus A. P. da Costa
- * Aula 09 — Componentes: Navbar, Cards, Footer
- * Prof. Jeofton Costa
- */
 
-/* ── 1. HAMBURGER MENU ──────────────────────────────────────── */
+
 const toggle = document.querySelector('.header__toggle');
 const nav    = document.querySelector('.header__nav');
 
@@ -16,8 +10,7 @@ if (toggle && nav) {
     toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
   });
 
-  // Fechar com Escape
-  document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && nav.classList.contains('header__nav--open')) {
       nav.classList.remove('header__nav--open');
       toggle.setAttribute('aria-expanded', 'false');
@@ -25,8 +18,7 @@ if (toggle && nav) {
     }
   });
 
-  // Fechar ao clicar fora
-  document.addEventListener('click', (e) => {
+document.addEventListener('click', (e) => {
     if (!toggle.contains(e.target) && !nav.contains(e.target)) {
       nav.classList.remove('header__nav--open');
       toggle.setAttribute('aria-expanded', 'false');
@@ -34,7 +26,6 @@ if (toggle && nav) {
   });
 }
 
-/* ── 2. SCROLL — adiciona .header--scrolled após 80px ────────── */
 const header = document.querySelector('.header');
 
 if (header) {
@@ -42,10 +33,9 @@ if (header) {
     header.classList.toggle('header--scrolled', window.scrollY > 80);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // checar estado inicial
+  onScroll(); 
 }
 
-/* ── 3. NAV LINK ATIVO — marca seção visível ─────────────────── */
 const navLinks = document.querySelectorAll('.header__nav-link[href^="#"]');
 const sections = document.querySelectorAll('section[id]');
 
@@ -65,13 +55,12 @@ if (navLinks.length && sections.length) {
   sections.forEach(s => observer.observe(s));
 }
 
-/* ── 4. SMOOTH SCROLL para âncoras ───────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
     const target = document.querySelector(anchor.getAttribute('href'));
     if (target) {
       e.preventDefault();
-      // Fechar menu mobile se aberto
+      
       nav?.classList.remove('header__nav--open');
       toggle?.setAttribute('aria-expanded', 'false');
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -79,11 +68,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-/* ── 5. ANO AUTOMÁTICO NO COPYRIGHT ──────────────────────────── */
 const yearEl = document.getElementById('footer-year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ── 6. ANIMAÇÃO DAS SKILL BARS (IntersectionObserver) ───────── */
 const skillFills = document.querySelectorAll('.skill-fill[data-width]');
 
 if (skillFills.length) {
@@ -104,30 +91,19 @@ if (skillFills.length) {
   });
 }
 
-/* ── 7. DEMANDA 2: DETECÇÃO DE NAVEGAÇÃO POR TECLADO ─────────
-   Adiciona .using-keyboard ao <body> quando o usuário pressiona
-   Tab pela primeira vez. O CSS em a11y.css usa essa classe para
-   aplicar estilos de foco ainda mais evidentes.
-
-   Comportamento:
-   • Tab → adiciona .using-keyboard (foco reforçado ativo)
-   • Click do mouse → remove .using-keyboard (retorna ao padrão)
-
-   Isso evita o foco exagerado aparecer para usuários de mouse,
-   que não precisam de indicadores tão grandes.               */
 (function () {
   const KEYBOARD_CLASS = 'using-keyboard';
 
   function onFirstTab(e) {
     if (e.key !== 'Tab') return;
     document.body.classList.add(KEYBOARD_CLASS);
-    /* Após primeira detecção, monitora mouse para remover a classe */
+    
     document.addEventListener('mousedown', onMouseDown);
   }
 
   function onMouseDown() {
     document.body.classList.remove(KEYBOARD_CLASS);
-    /* Re-registra o listener de Tab para detectar retorno ao teclado */
+    
     document.addEventListener('keydown', onFirstTab, { once: true });
     document.removeEventListener('mousedown', onMouseDown);
   }
@@ -135,11 +111,6 @@ if (skillFills.length) {
   document.addEventListener('keydown', onFirstTab, { once: true });
 })();
 
-/* ── 8. TEMA ESCURO / CLARO ───────────────────────────────────
-   Toggle de tema com persistência no localStorage.
-   Fallback automático para a preferência do sistema (prefers-color-scheme).
-   O tema inicial é aplicado no <head> (anti-FOUC); aqui só gerenciamos
-   o botão e os eventos de mudança.                           */
 (function () {
   const STORAGE_KEY = 'theme';
   const themeBtn    = document.getElementById('theme-toggle');
@@ -154,11 +125,9 @@ if (skillFills.length) {
     }
   }
 
-  // Sincronizar aria-label com o tema que já foi aplicado no <head>
-  applyTheme(document.documentElement.dataset.theme || 'light');
+applyTheme(document.documentElement.dataset.theme || 'light');
 
-  // Clique no botão
-  if (themeBtn) {
+if (themeBtn) {
     themeBtn.addEventListener('click', () => {
       const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
       applyTheme(next);
@@ -166,8 +135,7 @@ if (skillFills.length) {
     });
   }
 
-  // Acompanhar mudanças no SO quando não há preferência manual salva
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     if (!localStorage.getItem(STORAGE_KEY)) {
       applyTheme(e.matches ? 'dark' : 'light');
     }

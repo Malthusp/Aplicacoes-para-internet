@@ -6,20 +6,13 @@
   <title>Portfólio — Malthus Albuquerque Pereira da Costa</title>
   <meta name="description" content="Portfólio de Malthus A. P. da Costa — Estudante de Ciência da Computação." />
 
-  <!-- Google Fonts — Inter + Poppins (Aula 09) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@700&display=swap" rel="stylesheet" />
 
-  <!--
-    CSS — ponto de entrada único (main.css gerencia a ordem ITCSS):
-    Settings → Generic → Base → Layout → Components → Utilities
-    Para detalhes ver css/main.css e css/tokens/
-  -->
-  <link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/main.css" />
 
-  <!-- Anti-FOUC: aplica tema antes da primeira renderização -->
-  <script>
+<script>
     (function () {
       var saved = localStorage.getItem('theme');
       var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -29,15 +22,12 @@
 </head>
 <body>
 
-  <!-- SKIP LINK: primeiro elemento focável — permite pular navbar via teclado -->
-  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+<a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
 
-  <!-- ══════════════════════ HEADER / NAVBAR ═══════════════════ -->
-  <header class="header">
+<header class="header">
     <div class="header__inner">
 
-      <!-- Logo -->
-      <a href="/" class="header__logo" aria-label="Malthus Costa — Página inicial">
+<a href="/" class="header__logo" aria-label="Malthus Costa — Página inicial">
         <span class="header__logo-mark" aria-hidden="true">M.A</span>
         <span class="header__logo-text">
           Malthus Costa
@@ -45,8 +35,7 @@
         </span>
       </a>
 
-      <!-- Nav Desktop -->
-      <nav class="header__nav" id="main-nav" aria-label="Navegação principal">
+<nav class="header__nav" id="main-nav" aria-label="Navegação principal">
         <ul class="header__nav-list" role="list">
           <li><a href="#sobre"       class="header__nav-link">Sobre</a></li>
           <li><a href="#disciplinas" class="header__nav-link">Disciplinas</a></li>
@@ -56,15 +45,14 @@
         </ul>
       </nav>
 
-      <!-- Theme Toggle -->
-      <button
+<button
         class="header__theme-toggle"
         id="theme-toggle"
         aria-label="Mudar para tema escuro"
         title="Alternar tema"
         type="button"
       >
-        <!-- Sol — exibido no tema escuro → clique para voltar ao claro -->
+        
         <svg class="theme-icon theme-icon--sun" aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg" width="20" height="20"
           viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -79,7 +67,7 @@
           <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"/>
           <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
         </svg>
-        <!-- Lua — exibido no tema claro → clique para ir ao escuro -->
+        
         <svg class="theme-icon theme-icon--moon" aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg" width="20" height="20"
           viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -88,8 +76,7 @@
         </svg>
       </button>
 
-      <!-- Hamburger Mobile -->
-      <button
+<button
         class="header__toggle hide-desktop"
         aria-controls="main-nav"
         aria-expanded="false"
@@ -104,22 +91,20 @@
     </div>
   </header>
 
-  <!-- ══════════════════════ MAIN ══════════════════════════════ -->
-  <main class="main" id="main-content">
+<main class="main" id="main-content">
 
-    <!-- ── HERO ───────────────────────────────────────────────── -->
-    <section class="hero" id="sobre" aria-labelledby="hero-title">
-      <div class="hero__inner">
-        <div class="hero__content">
-          <p class="hero__eyebrow">Estudante de Ciência da Computação · João Pessoa, PB</p>
-          <h1 class="hero__title" id="hero-title">
+<section class="principal" id="sobre" aria-labelledby="principal-title">
+      <div class="principal__inner">
+        <div class="principal__content">
+          <p class="principal__eyebrow">Estudante de Ciência da Computação · João Pessoa, PB</p>
+          <h1 class="principal__title" id="principal-title">
             Malthus Albuquerque<br />Pereira da Costa
           </h1>
-          <p class="hero__desc">
+          <p class="principal__desc">
             Criando experiências digitais modernas com Python, Java, JavaScript, PHP, HTML e CSS.
             Focado em interfaces responsivas, acessíveis e bem estruturadas.
           </p>
-          <div class="hero__actions">
+          <div class="principal__actions">
             <a href="#projetos"  class="btn btn--primary">Ver Projetos</a>
             <a href="#contato"   class="btn btn--ghost" style="color:#fff; --btn-bg-hover: rgba(255,255,255,.1); --btn-color-hover:#fff;">Entrar em Contato</a>
           </div>
@@ -127,8 +112,7 @@
       </div>
     </section>
 
-    <!-- ── DISCIPLINAS — seção de cards ─────────────────────── -->
-    <section class="section" id="disciplinas" aria-labelledby="disc-title">
+<section class="section" id="disciplinas" aria-labelledby="disc-title">
       <div class="container">
         <header class="section__header">
           <span class="section__eyebrow">Semestre 2023.2 -> 2026.1</span>
@@ -139,11 +123,9 @@
           </p>
         </header>
 
-        <!-- CARDS GRID — mínimo 4 cards; primeiro com card--featured -->
-        <div class="cards-grid">
+<div class="cards-grid">
 
-          <!-- Card 1 — featured -->
-          <article class="card card--featured" aria-label="Disciplina em destaque">
+<article class="card card--featured" aria-label="Disciplina em destaque">
             <div class="card__header card__header--blue">🇵🇾🇹🇭🇴🇳</div>
             <div class="card__body">
               <h3 class="card__title">Python</h3>
@@ -160,8 +142,7 @@
             </div>
           </article>
 
-          <!-- Card 2 -->
-          <article class="card">
+<article class="card">
             <div class="card__header card__header--green">☕</div>
             <div class="card__body">
               <h3 class="card__title">Java</h3>
@@ -179,8 +160,7 @@
             </div>
           </article>
 
-          <!-- Card 3 -->
-          <article class="card">
+<article class="card">
             <div class="card__header card__header--amber">🇯🇸</div>
             <div class="card__body">
               <h3 class="card__title">JavaScript</h3>
@@ -195,8 +175,7 @@
             </div>
           </article>
 
-          <!-- Card 4 -->
-          <article class="card">
+<article class="card">
             <div class="card__header card__header--purple">🇵🇭🇵</div>
             <div class="card__body">
               <h3 class="card__title">PHP</h3>
@@ -211,8 +190,7 @@
             </div>
           </article>
 
-          <!-- Card 5 -->
-          <article class="card">
+<article class="card">
             <div class="card__header card__header--rose">🇭🇹🇲🇱</div>
             <div class="card__body">
               <h3 class="card__title">HTML</h3>
@@ -227,8 +205,7 @@
             </div>
           </article>
 
-          <!-- Card 6 -->
-          <article class="card">
+<article class="card">
             <div class="card__header card__header--teal">🇨🇸🇸</div>
             <div class="card__body">
               <h3 class="card__title">CSS</h3>
@@ -242,12 +219,11 @@
             </div>
           </article>
 
-        </div><!-- /cards-grid -->
+        </div>
       </div>
     </section>
 
-    <!-- ── PROJETOS ─────────────────────────────────────────── -->
-    <section class="section" id="projetos" style="background: var(--color-bg-primary);" aria-labelledby="proj-title">
+<section class="section" id="projetos" style="background: var(--color-bg-primary);" aria-labelledby="proj-title">
       <div class="container">
         <header class="section__header">
           <span class="section__eyebrow">Prática</span>
@@ -316,8 +292,7 @@
       </div>
     </section>
 
-    <!-- ── HABILIDADES ─────────────────────────────────────── -->
-    <section class="section" id="habilidades" aria-labelledby="skills-title">
+<section class="section" id="habilidades" aria-labelledby="skills-title">
       <div class="container">
         <header class="section__header">
           <span class="section__eyebrow">Linguagens</span>
@@ -355,13 +330,11 @@
             </div>
           </div>
 
-
-        </div>
+</div>
       </div>
     </section>
 
-    <!-- ── CONTATO / DESAFIO BTN ───────────────────────────── -->
-    <section class="section" id="contato" style="background: var(--color-bg-primary);" aria-labelledby="contact-title">
+<section class="section" id="contato" style="background: var(--color-bg-primary);" aria-labelledby="contact-title">
       <div class="container">
         <header class="section__header">
           <span class="section__eyebrow">Fale comigo</span>
@@ -392,14 +365,12 @@
 
   </main>
 
-  <!-- ══════════════════════ FOOTER ════════════════════════════ -->
-  <footer class="footer">
+<footer class="footer">
     <div class="footer__inner">
 
       <div class="footer__grid">
 
-        <!-- Coluna 1 — Brand -->
-        <div>
+<div>
           <p class="footer__brand-name">Malthus A. P. da Costa</p>
           <p class="footer__brand-desc">
             Portfólio acadêmico do curso de Ciência da Computação.
@@ -407,8 +378,7 @@
           </p>
         </div>
 
-        <!-- Coluna 2 — Navegação -->
-        <div>
+<div>
           <h3 class="footer__col-title">Navegar</h3>
           <ul class="footer__links" role="list">
             <li><a href="#sobre">Sobre</a></li>
@@ -418,10 +388,7 @@
           </ul>
         </div>
 
-
-
-        <!-- Coluna 4 — Contato -->
-        <div>
+<div>
           <h3 class="footer__col-title">Contato</h3>
           <ul class="footer__links" role="list">
             <li><a href="#contato">Formulário</a></li>
@@ -430,7 +397,7 @@
           </ul>
         </div>
 
-      </div><!-- /footer__grid -->
+      </div>
 
       <div class="footer__bottom">
         <p class="footer__copy">

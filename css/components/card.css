@@ -1,15 +1,5 @@
-/* ============================================================
-   card.css — Componente: Cards BEM
-   .card / .card--featured / .card__header / .card__body
-   Tokens: usa APENAS semânticos — zero valores hardcoded.
 
-   CORRECAO (checklist de responsividade):
-   • Falha 9 — .card:hover e .card__link:hover dentro de
-               @media (hover: hover) and (pointer: fine)
-               para evitar estado travado em touch
-   ============================================================ */
 
-/* ── CARD — bloco ─────────────────────────────────────────── */
 .card {
   background: var(--color-bg-primary);
   border: 1px solid var(--color-border);
@@ -22,7 +12,6 @@
     box-shadow  var(--transition-normal);
 }
 
-/* FIX Falha 9: elevacao do card isolada para nao travar em touch */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     transform: translateY(-4px);
@@ -30,7 +19,6 @@
   }
 }
 
-/* ── CARD — Modificador: destaque ─────────────────────────── */
 .card--featured {
   border-color: var(--color-action-primary);
   position: relative;
@@ -51,7 +39,6 @@
   letter-spacing: 0.04em;
 }
 
-/* ── CARD__HEADER — elemento ─────────────────────────────── */
 .card__header {
   padding: var(--space-8) var(--space-6);
   display: flex;
@@ -68,7 +55,6 @@
 .card__header--rose   { background: var(--color-card-header-rose);   }
 .card__header--teal   { background: var(--color-card-header-teal);   }
 
-/* ── CARD__BODY — elemento ───────────────────────────────── */
 .card__body {
   padding: var(--space-6);
   display: flex;
@@ -130,12 +116,11 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  /* FIX Falha 3: min-height para area de toque adequada */
+  
   min-height: 44px;
   transition: gap var(--transition-fast), color var(--transition-fast);
 }
 
-/* FIX Falha 9: animacao do link isolada para nao travar em touch */
 @media (hover: hover) and (pointer: fine) {
   .card__link:hover {
     color: var(--color-action-primary-hover);

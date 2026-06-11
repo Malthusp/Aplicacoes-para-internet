@@ -1,17 +1,5 @@
-/* ============================================================
-   btn.css — Componente: Botões BEM
-   .btn / .btn--primary / .btn--outline / .btn--ghost
-   Tokens: usa APENAS semânticos — zero valores hardcoded.
 
-   CORREÇÕES (checklist de responsividade):
-   • Falha 3 — min-height: 44px no .btn base (WCAG 2.5.5)
-   • Falha 3 — btn--sm mantém min-height; padding reduzido só horizontal
-   • Falha 3 — header__toggle corrigido para 44×44px em navbar.css
-   • Falha 9 — todos os :hover dentro de @media (hover: hover)
-               para evitar hover orphans em dispositivos touch
-   ============================================================ */
 
-/* ── BTN — base ───────────────────────────────────────────── */
 .btn {
   --btn-bg:          transparent;
   --btn-color:       var(--color-text-primary);
@@ -24,8 +12,7 @@
   justify-content: center;
   gap: var(--space-2);
 
-  /* FIX Falha 3: min-height >= 44px garante area de toque WCAG 2.5.5 */
-  min-height: 44px;
+min-height: 44px;
   padding: var(--space-2) var(--space-6);
 
   background: var(--btn-bg);
@@ -47,8 +34,6 @@
     box-shadow     var(--transition-fast);
 }
 
-/* FIX Falha 9: hover apenas em dispositivos que suportam hover real
-   (mouse/trackpad). Em touch, o :hover ficava travado apos o tap. */
 @media (hover: hover) and (pointer: fine) {
   .btn:hover {
     background: var(--btn-bg-hover);
@@ -61,14 +46,12 @@
   transform: translateY(0);
 }
 
-/* ── :focus-visible — acessível ───────────────────────────── */
 .btn:focus-visible {
   outline: 3px solid var(--color-action-primary);
   outline-offset: 3px;
   border-radius: var(--radius-md);
 }
 
-/* ── BTN--PRIMARY ─────────────────────────────────────────── */
 .btn--primary {
   --btn-bg:          var(--color-action-primary);
   --btn-color:       var(--color-on-action);
@@ -77,7 +60,6 @@
   --btn-color-hover: var(--color-on-action);
 }
 
-/* FIX Falha 9: box-shadow no hover isolado para nao travar em touch */
 @media (hover: hover) and (pointer: fine) {
   .btn--primary:hover {
     border-color: var(--color-action-primary-hover);
@@ -85,7 +67,6 @@
   }
 }
 
-/* ── BTN--OUTLINE ─────────────────────────────────────────── */
 .btn--outline {
   --btn-bg:          transparent;
   --btn-color:       var(--color-action-primary);
@@ -94,7 +75,6 @@
   --btn-color-hover: var(--color-action-primary-hover);
 }
 
-/* ── BTN--GHOST ───────────────────────────────────────────── */
 .btn--ghost {
   --btn-bg:          transparent;
   --btn-color:       var(--color-text-secondary);
@@ -103,10 +83,6 @@
   --btn-color-hover: var(--color-text-primary);
 }
 
-/* ── Tamanhos ─────────────────────────────────────────────── */
-/* FIX Falha 3: btn--sm herda min-height: 44px do base.
-   Padding horizontal reduzido mantém a proporcao visual compacta
-   sem comprometer a area de toque. */
 .btn--sm {
   padding: var(--space-1) var(--space-3);
   font-size: var(--font-size-xs);

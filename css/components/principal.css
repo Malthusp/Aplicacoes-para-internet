@@ -1,0 +1,85 @@
+
+
+.principal-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.principal-eyebrow {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-action-primary-subtle);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.principal h1 {
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-6);
+  line-height: var(--line-height-tight);
+}
+
+.principal h1 em {
+  color: var(--color-action-primary-subtle);
+  font-style: italic;
+}
+
+.principal-desc {
+  color: var(--color-text-on-dark-muted);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-normal);
+  margin-bottom: var(--space-8);
+  max-width: 50ch;
+}
+
+.btn-principal {
+  display: inline-block;
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-action-primary);
+  color: var(--color-on-action);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-full);
+  transition:
+    background  var(--transition-fast),
+    transform   var(--transition-fast);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-principal:hover {
+    background: var(--color-action-primary-hover);
+    color: var(--color-on-action);
+    transform: translateY(-2px);
+  }
+}
+
+.principal-deco {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .principal-deco { display: flex; align-items: center; justify-content: center; }
+}
+
+.deco-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--color-warning) 30%, transparent);
+}
+
+.ring-1 { width: 200px; height: 200px; }
+.ring-2 { width: 150px; height: 150px; border-color: color-mix(in srgb, var(--color-warning) 50%, transparent); }
+.ring-3 { width: 100px; height: 100px; border-color: color-mix(in srgb, var(--color-warning) 70%, transparent); }
+
+.deco-code {
+  color: var(--color-action-primary);
+  font-family: monospace;
+  font-size: var(--font-size-icon);
+  font-weight: var(--font-weight-bold);
+  position: relative;
+  z-index: 1;
+}

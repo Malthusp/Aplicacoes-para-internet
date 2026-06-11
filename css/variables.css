@@ -1,17 +1,9 @@
-/* ============================================================
-   variables.css — Hub de Tokens (ponto de entrada único)
-   Importa as 4 camadas na ordem correta de dependência.
-   Componentes e utilitários importam apenas este arquivo.
-   ============================================================ */
 
-/* 1 — Primitivos: valores brutos, uso interno (_prefixo) */
+
 @import url("tokens/primitives.css");
 
-/* 2 — Semânticos: intenções de design, uso nos componentes */
 @import url("tokens/semantic.css");
 
-/* 3 — Espaçamento: escala previsível de 4px */
 @import url("tokens/spacing.css");
 
-/* 4 — Tipografia: famílias, tamanhos, pesos, alturas */
 @import url("tokens/typography.css");

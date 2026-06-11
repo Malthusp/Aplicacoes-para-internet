@@ -1,12 +1,4 @@
-/* ============================================================
-   footer.css — Componente: Footer BEM
-   .footer / .footer__grid / .footer__col / .footer__bottom
-   Tokens: usa APENAS semânticos — zero valores hardcoded.
 
-   CORRECAO (checklist de responsividade):
-   • Falha 9 — .footer__links a:hover dentro de
-               @media (hover: hover) and (pointer: fine)
-   ============================================================ */
 
 .footer {
   background: var(--color-bg-dark);
@@ -20,7 +12,6 @@
   margin: 0 auto;
 }
 
-/* ── FOOTER__GRID ─────────────────────────────────────────── */
 .footer__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -36,7 +27,6 @@
   .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
 }
 
-/* ── FOOTER__COL ──────────────────────────────────────────── */
 .footer__brand-name {
   font-family: var(--font-heading);
   font-weight: var(--font-weight-bold);
@@ -72,14 +62,13 @@
 .footer__links a {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
-  /* FIX Falha 3: min-height garante area de toque >= 44px em mobile */
+  
   min-height: 44px;
   display: flex;
   align-items: center;
   transition: color var(--transition-fast);
 }
 
-/* FIX Falha 9: cor de hover isolada para nao travar em touch */
 @media (hover: hover) and (pointer: fine) {
   .footer__links a:hover {
     color: var(--color-action-primary);
@@ -92,7 +81,6 @@
   border-radius: var(--radius-sm);
 }
 
-/* ── FOOTER__BOTTOM ───────────────────────────────────────── */
 .footer__bottom {
   border-top: 1px solid var(--color-border-dark);
   padding-top: var(--space-6);
