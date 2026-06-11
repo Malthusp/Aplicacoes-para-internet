@@ -109,7 +109,7 @@ Hierarquia: H1 (nome principal) → H2 (seções) → H3 (cards/items)
 ## 3. Paleta de Cores
 
 **Nome da paleta:** Terracota & Noite  
-**Inspiração:** Cores quentes do nordeste brasileiro (terracota/argila) contrastando com azul-noite profundo.
+**Inspiração:** Azul contrastando com azul-noite profundo/branco.
 
 | Token | Hex | Uso |
 |---|---|---|
